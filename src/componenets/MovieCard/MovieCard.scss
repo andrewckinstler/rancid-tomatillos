@@ -5,6 +5,8 @@
   width: 15%;
   padding: 2%;
   margin: 2%;
+  display: grid;
+  font-family: 'Nunito', sans-serif;
 }
 
 .poster-img {
@@ -15,11 +17,21 @@
 
 .movie-card-title {
   text-align: center;
-  text-decoration: underline;
+  font-size: 1.8rem;
 }
 
 .ratings-footer {
-  height: 10%;
+  display: grid;
   width: 100%;
-  border: 1px solid black;
+
+}
+
+.movie-rating {
+  justify-self: end;
+  padding: 1.5%;
+  align-self: end;
+  font-weight: 900;
+  font-size: 1.2rem;
+  border: 1px solid #008F11;
+  border-radius: 5%;
 }

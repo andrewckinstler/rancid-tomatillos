@@ -7,11 +7,10 @@ export const MovieCard = ({title, posterPath, id, averageRating}) => {
   return (
     <section className='movie-card' id={id}>
       <img className='poster-img' alt={`movie poster for ${title}`} src={posterPath} />
-      <h2 className='movie-card-title'>{title}</h2>
+      <h1 className='movie-card-title'>{title}</h1>
       <footer className='ratings-footer'>
-        <h1 className='movie-rating'>{averageRating}</h1>
+        <h2 className='movie-rating'>{`Rating: ${averageRating}/10`}</h2>
       </footer>
-
     </section>
   )
 }
