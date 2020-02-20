@@ -1,5 +1,4 @@
-import React from 'react';
-import { Component } from 'react';
+import React, { Component } from 'react';
 
 export class Login extends Component {
   constructor() {
@@ -14,7 +13,26 @@ export class Login extends Component {
     this.setState({ [e.target.name]: e.target.value})
   }
 
-  
 
+  render() {
+    const { email, password } = this.state
+    return (
+    <div>
+        <input
+          type="text"
+          placeholder="Email..."
+          name="email"
+          value={email}
+          onChange={this.handleChange}
+        />
+        <input
+          type="password"
+          placeholder="Password..."
+          name="password"
+          value={password}
+          onChange={this.handleChange}
+        />
+    </div>)
+  }
 
 }

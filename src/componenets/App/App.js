@@ -5,6 +5,7 @@ import './App.scss';
 import { fetchMovies, getMovies } from '../../actions';
 import { fetchMoviesAPI } from '../../apiCalls/apiCalls.js'
 import MovieContainer from '../../containers/MovieContainer/MovieContainer.js'
+import { Login } from '../Login/Login'
 
 class App extends Component {
   constructor() {
@@ -21,6 +22,7 @@ class App extends Component {
         <h1>Oh Hi There...</h1>
         <MovieContainer />
         <h2>{ 'fewhfiuweh'}</h2>
+        <Login />
       </div>
     )
   }
