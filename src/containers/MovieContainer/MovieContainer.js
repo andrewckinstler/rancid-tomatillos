@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { MovieCard } from '../../componenets/MovieCard/MovieCard.js'
 import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadingMovies, getMovies } from '../../actions';
@@ -13,13 +14,21 @@ class MovieContainer extends Component {
     })
   }
   render() {
+    let movieCards = this.props.movies.map(movie => {
+      return <MovieCard
+                title={movie.title}
+                posterPath={movie.poster_path}
+                id={movie.id}
+             />
+    })
+
     if (this.props.loadingStatus) {
       return (<div><h2>loading now</h2></div>)
     }
     return (
-      <div>
-        <h2>{this.props.movies[0].title}</h2>
-      </div>
+      <section className='movie-container'>
+        {movieCards}
+      </section>
     )
   }
 }
