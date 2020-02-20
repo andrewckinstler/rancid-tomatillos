@@ -1,5 +1,25 @@
-// width: 230px height: 300px;
-
 .movie-card {
-  border: 2px solid green;
+  border: 3px solid #008F11;
+  border-radius: 5%;
+  background-color: white;
+  width: 15%;
+  padding: 2%;
+  margin: 2%;
+}
+
+.poster-img {
+  width: 100%;
+  height: auto;
+  border-radius: 3%;
+}
+
+.movie-card-title {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.ratings-footer {
+  height: 10%;
+  width: 100%;
+  border: 1px solid black;
 }
