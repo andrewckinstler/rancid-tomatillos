@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { userSignIn } from '../../apiCalls/apiCalls'
 
 export class Login extends Component {
   constructor() {
@@ -13,6 +14,11 @@ export class Login extends Component {
     this.setState({ [e.target.name]: e.target.value})
   }
 
+  handleClick = async () => {
+    const { email, password } = this.state;
+    const user = { email, password }
+    await userSignIn(user)
+  }
 
   render() {
     const { email, password } = this.state
@@ -32,6 +38,7 @@ export class Login extends Component {
           value={password}
           onChange={this.handleChange}
         />
+        <button onClick={() => this.handleClick()}>Login</button>
     </div>)
   }
 

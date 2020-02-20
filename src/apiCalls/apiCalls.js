@@ -4,6 +4,7 @@ export const fetchMoviesAPI = () => {
 }
 
 export const userSignIn = (user) => {
+  const url = 'https://rancid-tomatillos.herokuapp.com/api/v1/login'
   const options = {
     method: 'POST',
     body: JSON.stringify(user),
@@ -12,7 +13,7 @@ export const userSignIn = (user) => {
     }
   }
   
-  return fetch('url', options)
+  return fetch(url, options)
           .then(res => {
             if(!res.ok) {
               throw Error('Failed to sign in.')
