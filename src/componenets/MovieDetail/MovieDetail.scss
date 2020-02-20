@@ -1,0 +1,18 @@
+.movie-detail {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  &__info {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding: 1em;
+    width: 60%;
+  }
+  &__image {
+    padding: 1em;
+    width: 40%;
+  }
+}
