@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { userSignIn } from '../../apiCalls/apiCalls'
+import { connect } from 'react-redux';
+import { addUser } from '../../actions';
+
 
 export class Login extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      email: '',
-      password: ''
+      "email": "",
+      "password": ""
     }
   }
 
@@ -15,15 +18,17 @@ export class Login extends Component {
   }
 
   handleClick = async () => {
+    const { addUser } = this.props;
     const { email, password } = this.state;
-    const user = { email, password }
-    await userSignIn(user)
+    const user = { email, password };
+    const result = await userSignIn(user);
+    addUser(result)
   }
 
   render() {
     const { email, password } = this.state
     return (
-    <div>
+      <div>
         <input
           type="text"
           placeholder="Email..."
@@ -41,5 +46,10 @@ export class Login extends Component {
         <button onClick={() => this.handleClick()}>Login</button>
     </div>)
   }
-
 }
+
+const mapDispatchToProps = dispatch => ({
+  addUser: (user) => dispatch( addUser(user) )
+})
+
+export default connect(null, mapDispatchToProps)(Login)
