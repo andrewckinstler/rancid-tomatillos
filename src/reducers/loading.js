@@ -5,5 +5,4 @@ export const loadingReducer = (state = true, action) => {
     default:
       return state;
   }
-
 }
