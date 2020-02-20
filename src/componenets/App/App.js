@@ -20,7 +20,6 @@ class App extends Component {
       <div>
         <h1>Oh Hi There...</h1>
         <MovieContainer />
-        <h2>{ 'fewhfiuweh'}</h2>
       </div>
     )
   }
