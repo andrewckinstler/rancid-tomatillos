@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './App.scss';
 import MovieContainer from '../../containers/MovieContainer/MovieContainer.js'
 import MovieDetail from '../MovieDetail/MovieDetail.js';
+import Header from '../Header/Header.js';
 
 class App extends Component {
   constructor() {
@@ -14,6 +15,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Header />
         <h1>Oh Hi There...</h1>
         <MovieContainer />
         {/* <MovieDetail /> */}
