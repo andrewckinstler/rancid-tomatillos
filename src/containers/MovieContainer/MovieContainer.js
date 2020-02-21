@@ -3,7 +3,6 @@ import { MovieCard } from '../../componenets/MovieCard/MovieCard.js'
 import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './MovieContainer.scss'
-import { fetchMoviesAPI } from '../../apiCalls/apiCalls.js'
 import { loadingMovies, getMovies, getRatings } from '../../actions';
 import { fetchMoviesAPI, fetchRatingsAPI } from '../../apiCalls/apiCalls.js';
 import { Loading } from '../../componenets/Loading/Loading.js';
