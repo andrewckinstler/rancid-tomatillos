@@ -16,8 +16,6 @@ class App extends Component {
       <div>
         <h1>Oh Hi There...</h1>
         <MovieContainer />
-        {/* <MovieDetail /> */}
-        <h2>{ 'fewhfiuweh'}</h2>
       </div>
     )
   }

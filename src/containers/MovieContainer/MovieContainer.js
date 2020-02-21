@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { MovieCard } from '../../componenets/MovieCard/MovieCard.js'
 import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import './MovieContainer.scss'
+import { fetchMoviesAPI } from '../../apiCalls/apiCalls.js'
 import { loadingMovies, getMovies, getRatings } from '../../actions';
 import { fetchMoviesAPI, fetchRatingsAPI } from '../../apiCalls/apiCalls.js';
 import { Loading } from '../../componenets/Loading/Loading.js';
@@ -26,13 +29,23 @@ class MovieContainer extends Component {
   }
 
   render() {
+    console.log(this.props.movies[0]);
+    let movieCards = this.props.movies.map(movie => {
+      return <MovieCard
+                title={movie.title}
+                posterPath={movie.poster_path}
+                id={movie.id}
+                averageRating={movie.average_rating}
+             />
+    })
+
     if (this.props.loadingStatus) {
       return <Loading />
     }
     return (
-      <div>
-        <h2>{this.props.movies[0].title}</h2>
-      </div>
+      <section className='movie-container'>
+        {movieCards}
+      </section>
     )
   }
 }
