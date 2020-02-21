@@ -7,3 +7,8 @@ export const loadingMovies = loadingStatus => ({
   type: 'LOADING_MOVIES',
   loadingStatus: !loadingStatus
 })
+
+export const getRatings = ratings => ({
+  type: 'GET_RATINGS',
+  ratings
+})
