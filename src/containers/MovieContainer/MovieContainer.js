@@ -28,7 +28,6 @@ class MovieContainer extends Component {
   }
 
   render() {
-    console.log(this.props.movies[0]);
     let movieCards = this.props.movies.map(movie => {
       return <MovieCard
                 title={movie.title}
