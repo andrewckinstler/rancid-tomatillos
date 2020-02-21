@@ -38,3 +38,8 @@
 	border: none;
 	border-radius: 4%;
 }
+
+.header_logoff-button:hover {
+	transform: rotate(6deg);
+	transition-duration: .3s;
+}
