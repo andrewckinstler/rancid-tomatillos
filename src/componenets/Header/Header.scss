@@ -1,0 +1,35 @@
+* {
+	margin: 0;
+}
+
+.header_main-container {
+	background: #0a1612;
+	height: 14vh;
+	color: #ffffff;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-content: center;
+	padding: 0 10px;
+}
+
+.header_welcome-text {
+	display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 12px;
+}
+
+.header_main-h1 {
+	margin: auto;
+	font-size: 45px;
+}
+
+.header_logoff-button {
+	width: 15%;
+	height: 38px;
+	margin-top: 30px;
+	background: #f7ce3e;
+	color: #0a1612;
+	border: none;
+}
