@@ -5,7 +5,7 @@ import './App.scss';
 import { fetchMovies, getMovies } from '../../actions';
 import { fetchMoviesAPI } from '../../apiCalls/apiCalls.js'
 import MovieContainer from '../../containers/MovieContainer/MovieContainer.js'
-import { Login } from '../Login/Login'
+import Login from '../Login/Login'
 
 class App extends Component {
   constructor() {

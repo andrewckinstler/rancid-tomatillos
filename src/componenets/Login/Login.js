@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addUser } from '../../actions';
 
 
-export class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -22,7 +22,7 @@ export class Login extends Component {
     const { email, password } = this.state;
     const user = { email, password };
     const result = await userSignIn(user);
-    addUser(result)
+    addUser(result.user)
   }
 
   render() {
