@@ -17,10 +17,7 @@
 
 .header_welcome-text {
 	grid-area: welcome-text;
-	// display: flex;
-  // flex-direction: column;
-  // justify-content: space-around;
-  // font-size: 12px;
+	margin-left: 5%;
 }
 
 .header_main-h1 {
@@ -48,4 +45,5 @@
 	background: #008F11;
 	color: #0a1612;
 	border: none;
+	border-radius: 4%;
 }
