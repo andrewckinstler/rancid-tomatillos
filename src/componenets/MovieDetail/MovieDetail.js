@@ -14,8 +14,9 @@ class MovieDetail extends Component {
   render() {
     let {title, id, average_rating, poster_path, backdrop_path, release_date, overview} = this.props.selectedMovie
     const backgroundStyling = {
-      background: `url(${backdrop_path}) no-repeat center center fixed`,
+      background: `linear-gradient(to top, rgba(42, 42, 42, .75), rgba(42, 42, 42, 0)), url(${backdrop_path}) no-repeat center center fixed`,
       backgroundSize: 'cover',
+
     }
     return (
       <section className='movie-detail' style={backgroundStyling}>
