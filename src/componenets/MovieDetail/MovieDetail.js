@@ -15,7 +15,7 @@ class MovieDetail extends Component {
     return (
       <section className='movie-detail'>
         <div className='movie-detail__info'>
-          <h2 className='movie-detail__title'>Movie Title</h2>
+          <h2 className='movie-detail__title'>{this.props.selectedMovie.title}</h2>
           <p>Average Rating: 5</p>
           <label for='user-rating'>User Rating:</label>
           <input type='range' min='1' max='10' id='user-rating' name='user-rating' />
