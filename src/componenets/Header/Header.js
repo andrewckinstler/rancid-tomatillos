@@ -5,9 +5,9 @@ const Header = () => {
 	return(
  <article className="header_main-container">
    <article className="header_welcome-text">
-     <h1>Welcome User</h1>
-     <h3> Avg. Rating 5.5 </h3>
-     <h3>Number of Rating</h3>
+     <h1>Welcome, [user]!</h1>
+     <h3> Avg. Rating: 5.5 </h3>
+     <h3>Number of Ratings:</h3>
    </article>
    <h1 className="header_main-h1">
      Rancid Tomatillos

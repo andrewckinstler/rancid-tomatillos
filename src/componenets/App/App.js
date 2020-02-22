@@ -18,7 +18,6 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <h1>Oh Hi There...</h1>
         <MovieContainer />
         <h2>{ 'fewhfiuweh'}</h2>
         <Login />

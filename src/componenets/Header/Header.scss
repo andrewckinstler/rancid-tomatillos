@@ -1,35 +1,47 @@
-* {
-	margin: 0;
-}
-
 .header_main-container {
+	font-family: 'Nunito', sans-serif;
 	background: #0a1612;
-	height: 14vh;
 	color: #ffffff;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-content: center;
-	padding: 0 10px;
+	border-bottom: 3px solid #008F11;
+	background: linear-gradient(to right, #003306, black);
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+	grid-template-areas: 'welcome-text title logoff'
 }
 
 .header_welcome-text {
-	display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  font-size: 12px;
+	grid-area: welcome-text;
+	margin-left: 5%;
 }
 
 .header_main-h1 {
-	margin: auto;
-	font-size: 45px;
+	grid-area: title;
+	align-self: center;
+	justify-self: center;
+	padding-left: 4%;
+	padding-right: 4%;
+	font-size: 3rem;
+	border-right: 3px solid #008F11;
+	border-left: 3px solid #008F11;
 }
 
 .header_logoff-button {
-	width: 15%;
-	height: 38px;
-	margin-top: 30px;
-	background: #f7ce3e;
+	grid-area: logoff;
+	justify-self: end;
+	align-self: center;
+	cursor: pointer;
+	font-family: 'Nunito', sans-serif;
+	font-size: 1.2rem;
+	font-weight: 900;
+	width: 30%;
+	height: 30%;
+	background: #008F11;
 	color: #0a1612;
 	border: none;
+	border-radius: 4%;
+}
+
+.header_logoff-button:hover {
+	transform: rotate(6deg);
+	transition-duration: .3s;
 }
