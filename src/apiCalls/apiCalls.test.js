@@ -20,12 +20,12 @@ describe('fetchMoviesAPI', () => {
     })
   })
 
-  it ('should call fetch with the correct URL', () => {
+  it('should call fetch with the correct URL', () => {
     fetchMoviesAPI();
     expect(window.fetch).toHaveBeenCalledWith('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
   })
 
-  it ('should return an array of movies', () => {
+  it('should return an array of movies', () => {
     fetchMoviesAPI()
       .then(movies => expect(movies).toEqual(mockResponse))
   })
@@ -68,12 +68,12 @@ describe('fetchRatingsAPI', () => {
     })
   })
 
-  it ('should call fetch with the correct URL', () => {
+  it('should call fetch with the correct URL', () => {
     fetchRatingsAPI();
     expect(window.fetch).toHaveBeenCalledWith('https://rancid-tomatillos.herokuapp.com/api/v1/users/24/ratings')
   })
 
-  it ('should return an array of ratings', () => {
+  it('should return an array of ratings', () => {
     fetchRatingsAPI()
       .then(ratings => expect(ratings).toEqual(mockResponse))
   })
@@ -94,5 +94,59 @@ describe('fetchRatingsAPI', () => {
     })
 
     expect(fetchRatingsAPI()).rejects.toEqual(Error('Failed to get ratings.'))
+  })
+})
+
+describe('fetchMoviesAPI', () => {
+  let mockUser = {
+    email: "charlie@turing.io",
+    password: "qwerty"
+  };
+
+  let mockOptions;
+
+  beforeEach(() => {
+    mockOptions = {
+      method: 'POST',
+      body: JSON.stringify(mockUser),
+      headers: {
+        'Content-Type': 'application/json'  
+      }
+    }
+
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockUser)
+      })
+    })
+  })
+
+  it('should call fetch with the correct URL', () => {
+    userSignIn(mockUser);
+    expect(window.fetch).toHaveBeenCalledWith('https://rancid-tomatillos.herokuapp.com/api/v1/login', mockOptions)
+  })
+
+  it('should return a user\'s session information', () => {
+    userSignIn(mockUser)
+      .then(user => expect(user).toEqual(mockUser))
+  })
+
+  it('should return an error', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false,
+      })
+    });
+    
+    expect(userSignIn(mockUser)).rejects.toEqual(Error('Failed to sign in.'))
+  });
+
+  it('should return an error if the Promise rejects', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject(Error('Failed to sign in.'))
+    })
+
+    expect(userSignIn(mockUser)).rejects.toEqual(Error('Failed to sign in.'))
   })
 })
