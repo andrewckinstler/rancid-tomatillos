@@ -8,3 +8,21 @@ export const fetchRatingsAPI = async () => {
   return await fetch('https://rancid-tomatillos.herokuapp.com/api/v1/users/24/ratings')
     .then(response => response.json())
 }
+
+export const userSignIn = (user) => {
+  const url = 'https://rancid-tomatillos.herokuapp.com/api/v1/login'
+  const options = {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type': 'application/json'  
+    }
+  }
+  
+  return fetch(url, options)
+          .then(res => {
+            if(!res.ok) {
+              throw Error('Failed to sign in.')
+            }
+            return res.json()})
+}
