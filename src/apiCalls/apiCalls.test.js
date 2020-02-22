@@ -48,3 +48,51 @@ describe('fetchMoviesAPI', () => {
     expect(fetchMoviesAPI()).rejects.toEqual(Error('Failed to retrieve movies.'))
   })
 })
+
+describe('fetchRatingsAPI', () => {
+  let mockResponse = [{
+      "id": 728,
+      "user_id": 24,
+      "movie_id": 21,
+      "rating": 10,
+      "created_at": "2020-02-21T20:47:43.845Z",
+      "updated_at": "2020-02-21T20:47:43.845Z"
+  }]
+
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      })
+    })
+  })
+
+  it ('should call fetch with the correct URL', () => {
+    fetchRatingsAPI();
+    expect(window.fetch).toHaveBeenCalledWith('https://rancid-tomatillos.herokuapp.com/api/v1/users/24/ratings')
+  })
+
+  it ('should return an array of ratings', () => {
+    fetchRatingsAPI()
+      .then(ratings => expect(ratings).toEqual(mockResponse))
+  })
+
+  it('should return an error', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false,
+      })
+    });
+    
+    expect(fetchRatingsAPI()).rejects.toEqual(Error('Failed to get ratings.'))
+  });
+
+  it('should return an error if the Promise rejects', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject(Error('Failed to get ratings.'))
+    })
+
+    expect(fetchRatingsAPI()).rejects.toEqual(Error('Failed to get ratings.'))
+  })
+})
