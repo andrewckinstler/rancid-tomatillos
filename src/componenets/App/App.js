@@ -11,7 +11,7 @@ import { loadingMovies, getMovies, getRatings } from '../../actions';
 import { Loading } from '../Loading/Loading.js';
 
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super();
     this.state = {};
@@ -63,7 +63,7 @@ export const mapStateToProps = (state) => ({
   loadingStatus: state.loadingStatus 
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   loadingMovies: (loadingStatus) => dispatch(loadingMovies(loadingStatus)),
   getMovies: (movies) => dispatch(getMovies(movies)),
   getRatings: (ratings) => dispatch(getRatings(ratings))

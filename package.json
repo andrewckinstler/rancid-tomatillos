@@ -46,7 +46,7 @@
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
-    "coveragePathIgnorePatters": [
+    "coveragePathIgnorePatterns": [
       "src/index.js",
       "src/serviceWorker.js"
     ]
