@@ -21,10 +21,10 @@ class MovieDetail extends Component {
       <section className='movie-detail' style={backgroundStyling}>
         <div className='movie-detail__info' >
           <h2 className='movie-detail__title'>{title}</h2>
-          <p>{`Average Rating: ${average_rating}`}</p>
-          <label for='user-rating'>User Rating:</label>
+          <p className='movie-detail__average-rating'>{`Average Rating: ${average_rating}`}</p>
+          <label for='user-rating'>User Rating: 6</label>
           <input type='range' min='1' max='10' id='user-rating' name='user-rating' />
-          <p>{overview}</p>
+          <p className='movie-detail__overview'>{overview}</p>
         </div>
       </section>
     )

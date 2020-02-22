@@ -22,6 +22,14 @@
   &__title {
     font-weight: 900;
     font-size: 2.5rem;
+    text-align: center;
+  }
+  &__average-rating {
+    font-weight: 700;
+  }
+  &__overview {
+    // text-align: center;
+    width: 80%;
   }
 
 }
