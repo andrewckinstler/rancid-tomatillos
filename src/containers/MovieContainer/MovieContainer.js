@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import './MovieContainer.scss'
 
 
-class MovieContainer extends Component {
+export class MovieContainer extends Component {
   
   render() {
     let movieCards = this.props.movies.map(movie => {

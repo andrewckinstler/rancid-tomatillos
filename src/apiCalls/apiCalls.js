@@ -1,12 +1,20 @@
 export const fetchMoviesAPI = async () => {
   return await fetch('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
-    .then(response => response.json())
+  .then(res => {
+    if(!res.ok) {
+      throw Error('Failed to retrieve movies.')
+    }
+    return res.json()})
 }
 
 // Currently has user ID hard coded, but needs to be updated to be dynamic
 export const fetchRatingsAPI = async () => {
   return await fetch('https://rancid-tomatillos.herokuapp.com/api/v1/users/24/ratings')
-    .then(response => response.json())
+  .then(res => {
+    if(!res.ok) {
+      throw Error('Failed to get ratings.')
+    }
+    return res.json()})
 }
 
 export const userSignIn = (user) => {

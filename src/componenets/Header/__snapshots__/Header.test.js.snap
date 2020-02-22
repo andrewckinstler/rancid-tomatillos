@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should match a snapshot 1`] = `
+<article
+  className="header_main-container"
+>
+  <article
+    className="header_welcome-text"
+  >
+    <h1>
+      Welcome, [user]!
+    </h1>
+    <h3>
+       Avg. Rating: 5.5 
+    </h3>
+    <h3>
+      Number of Ratings:
+    </h3>
+  </article>
+  <h1
+    className="header_main-h1"
+  >
+    Rancid Tomatillos
+  </h1>
+  <button
+    className="header_logoff-button"
+  >
+    Log Off
+  </button>
+</article>
+`;
