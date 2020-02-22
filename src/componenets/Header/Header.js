@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.scss';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 	return(
@@ -9,9 +10,9 @@ const Header = () => {
      <h3> Avg. Rating: 5.5 </h3>
      <h3>Number of Ratings:</h3>
    </article>
-   <h1 className="header_main-h1">
+   <Link to={'/'} className="header_main-link">
      Rancid Tomatillos
-   </h1>
+   </Link>
    <button className="header_logoff-button">Log Off</button>
  </article>
  )

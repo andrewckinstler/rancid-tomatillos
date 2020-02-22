@@ -1,19 +1,36 @@
 .movie-detail {
   align-items: center;
+  flex: 1;
   font-family: 'Nunito', sans-serif;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
+  &:first-child {
+    flex: 1;
+  }
   &__info {
     align-items: center;
     display: flex;
+    border-radius: 2%;
+    color: white;
+    font-size: 1.5rem;
     flex-flow: column nowrap;
     justify-content: center;
     padding: 1em;
-    width: 60%;
+    width: 45%;
+    background-color: rgba(42, 42, 42, .9);
   }
-  &__image {
-    padding: 1em;
-    width: 40%;
+  &__title {
+    font-weight: 900;
+    font-size: 2.5rem;
+    text-align: center;
   }
+  &__average-rating {
+    font-weight: 700;
+  }
+  &__overview {
+    // text-align: center;
+    width: 80%;
+  }
+
 }

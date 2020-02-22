@@ -41,17 +41,19 @@ class App extends Component {
       return <Loading />
     }
     return (
-      <main>
+      <main className='main'>
         <Header />
-            <div>
-              <Switch>
-                <Route path='/movies/:id'
-                       render={({ match })=>< MovieDetail selectedMovie=
-                       {this.props.movies.find(movie => movie.id === parseInt(match.params.id))}/>}/>
-                <Route path='/' 
-                       render={()=>< MovieContainer />} />
-              </Switch>
-            </div>
+        <div className='content'>
+          <Switch>
+            <Route
+              path='/movies/:id'
+              render={({ match })=>< MovieDetail selectedMovie=
+                   {this.props.movies.find(movie => movie.id === parseInt(match.params.id))}/>}/>
+            <Route
+              path='/'
+              render={()=>< MovieContainer />} />
+          </Switch>
+        </div>
       </main>
     )
   }
@@ -60,7 +62,7 @@ class App extends Component {
 export const mapStateToProps = (state) => ({
   movies: state.movies,
   ratings: state.ratings,
-  loadingStatus: state.loadingStatus 
+  loadingStatus: state.loadingStatus
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -70,4 +72,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
