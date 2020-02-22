@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDeatil should match a snapshot 1`] = `
+<section
+  className="movie-detail"
+>
+  <div
+    className="movie-detail__info"
+  >
+    <h2
+      className="movie-detail__title"
+    >
+      Sonic the Hedgehog
+    </h2>
+    <p>
+      Average Rating: 5
+    </p>
+    <label
+      for="user-rating"
+    >
+      User Rating:
+    </label>
+    <input
+      id="user-rating"
+      max="10"
+      min="1"
+      name="user-rating"
+      type="range"
+    />
+    <p>
+      Overview: Sint farm-to-table reprehenderit semiotics hammock sriracha laboris consectetur deep v cloud bread tousled messenger bag consequat. XOXO brunch mlkshk live-edge. Viral celiac raclette, locavore chambray iPhone hoodie migas. Messenger bag selfies magna coloring book aliquip, everyday carry velit.
+    </p>
+  </div>
+  <image
+    className="movie-detail__image"
+    url=""
+  />
+</section>
+`;

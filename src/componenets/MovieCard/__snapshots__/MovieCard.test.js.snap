@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieCard should match a snapshot 1`] = `
+<Link
+  className="movie-card"
+  to="/movies/undefined"
+>
+  <img
+    alt="movie poster for undefined"
+    className="poster-img"
+  />
+  <h1
+    className="movie-card-title"
+  />
+  <footer
+    className="ratings-footer"
+  >
+    <h2
+      className="movie-rating"
+    >
+      Rating: undefined/10
+    </h2>
+  </footer>
+</Link>
+`;

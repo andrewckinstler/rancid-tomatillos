@@ -3,7 +3,7 @@ import './MovieDetail.scss';
 import { connect } from 'react-redux';
 import { postRating } from '../../actions';
 
-class MovieDetail extends Component {
+export class MovieDetail extends Component {
   constructor() {
     super();
     this.state = {
