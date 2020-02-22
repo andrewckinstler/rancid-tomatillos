@@ -8,6 +8,7 @@ import MovieDetail from '../MovieDetail/MovieDetail.js';
 import Header from '../Header/Header.js';
 import { fetchMoviesAPI, fetchRatingsAPI } from '../../apiCalls/apiCalls.js';
 import { loadingMovies, getMovies, getRatings } from '../../actions';
+import { Loading } from '../Loading/Loading.js';
 
 
 class App extends Component {
@@ -36,6 +37,9 @@ class App extends Component {
   }
 
   render() {
+    if (this.props.loadingStatus) {
+      return <Loading />
+    }
     return (
       <main>
         <Header />
@@ -54,7 +58,9 @@ class App extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  movies: state.movies 
+  movies: state.movies,
+  ratings: state.ratings,
+  loadingStatus: state.loadingStatus 
 })
 
 const mapDispatchToProps = dispatch => ({
