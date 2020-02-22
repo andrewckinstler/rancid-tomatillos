@@ -12,14 +12,15 @@ class MovieDetail extends Component {
   }
 
   render() {
+    let {title, id, average_rating, poster_path, backdrop_path, release_date, overview} = this.props.selectedMovie
     return (
       <section className='movie-detail'>
         <div className='movie-detail__info'>
-          <h2 className='movie-detail__title'>{this.props.selectedMovie.title}</h2>
-          <p>Average Rating: 5</p>
+          <h2 className='movie-detail__title'>{title}</h2>
+          <p>{`Average Rating: ${average_rating}`}</p>
           <label for='user-rating'>User Rating:</label>
           <input type='range' min='1' max='10' id='user-rating' name='user-rating' />
-          <p>Overview: Sint farm-to-table reprehenderit semiotics hammock sriracha laboris consectetur deep v cloud bread tousled messenger bag consequat. XOXO brunch mlkshk live-edge. Viral celiac raclette, locavore chambray iPhone hoodie migas. Messenger bag selfies magna coloring book aliquip, everyday carry velit.</p>
+          <p>{overview}</p>
         </div>
         <image className='movie-detail__image' url=''></image>
       </section>
