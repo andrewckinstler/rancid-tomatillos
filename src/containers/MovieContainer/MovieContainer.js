@@ -16,10 +16,7 @@ class MovieContainer extends Component {
                 averageRating={movie.average_rating}
              />
     })
-
-    if (this.props.loadingStatus) {
-      return <Loading />
-    }
+    
     return (
       <section className='movie-container'>
         {movieCards}
