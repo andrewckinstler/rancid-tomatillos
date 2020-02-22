@@ -16,12 +16,15 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <main>
         <Header />
-        <MovieContainer />
-        <h2>{ 'fewhfiuweh'}</h2>
-        <Login />
-      </div>
+            <div>
+              <Switch>
+                <Route path='/' 
+                       render={()=><MovieContainer />} />
+              </Switch>
+            </div>
+      </main>
     )
   }
 }
