@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import { loadingReducer } from './loading.js'
 import { userReducer } from './login.js'
 import { ratingsReducer } from './ratings.js';
+import { errorReducer } from './error.js';
 
 // Purpose: to export a single reducer function called Root Reducer
 
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
   loadingStatus: loadingReducer,
   user: userReducer,
   ratings: ratingsReducer,
-  loadingStatus: loadingReducer
+  loadingStatus: loadingReducer,
+  error: errorReducer
 })
 
 export default rootReducer;
