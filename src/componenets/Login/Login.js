@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { userSignIn } from '../../apiCalls/apiCalls'
 import { connect } from 'react-redux';
 import { addUser, errorMsg } from '../../actions';
-
+import { Redirect } from 'react-router-dom'
 
 export class Login extends Component {
   constructor(props) {
@@ -24,8 +24,9 @@ export class Login extends Component {
     try { 
       const result = await userSignIn(user);
       addUser(result.user)
+      this.props.errorMsg('')
     }
-    catch (error) {
+    catch (e) {
       this.props.errorMsg('username or password incorrect')
     } 
   }
@@ -50,12 +51,14 @@ export class Login extends Component {
         />
         <button onClick={() => this.handleClick()}>Login</button>
         <p>{this.props.error}</p>
+        {this.props.user ? <Redirect to='/' /> : null}
     </div>)
   }
 }
 
 const mapStateToProps = state => ({
-  error: state.error
+  error: state.error,
+  user: state.user
 })
 
 const mapDispatchToProps = dispatch => ({
