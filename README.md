@@ -9,5 +9,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Utilize Redux to store shared state 
 - Testing (Including: async functions, Redux, React unit tests, etc)
 
+### Technologies 
+- React (w/ JSX syntax extension and SCSS for styling)
+- React Router
+- Redux (w/ redux-dev-tools)
+- Jest/Enzyme 
+- esLint
+- GitHub Projects
+
 ## Screenshots 
 coming soon!
