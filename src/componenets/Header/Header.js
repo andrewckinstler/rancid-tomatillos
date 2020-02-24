@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions'
 
 const Header = (props) => {
-  const logout = () => {
-    props.logout();
-  }
 	return (
     <article className="header_main-container">
       {!props.user 
@@ -24,7 +21,7 @@ const Header = (props) => {
         !props.user 
         ? <Link to={'/login'} className="header_logoff-button">Login</Link>
         : <Link to={'/'} className="header_logoff-button"
-        onClick={() => logout() }>Logout</Link>
+        onClick={() => props.logout() }>Logout</Link>
       }
     </article>
   )

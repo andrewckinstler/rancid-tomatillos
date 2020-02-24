@@ -28,3 +28,8 @@ export const logout = () => ({
   type: 'LOGOUT_USER',
   user: null
 })
+
+export const error = error => ({
+  type: 'ERROR_MSG',
+  error
+})
