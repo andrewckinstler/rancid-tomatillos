@@ -38,7 +38,12 @@ export class App extends Component {
 
   render() {
     if (this.props.loadingStatus) {
-      return <Loading />
+      return (
+      <main className='main'>
+        <Header />
+        <Loading />
+      </main>
+      )
     }
     return (
       <main className='main'>
@@ -48,7 +53,7 @@ export class App extends Component {
             <Route
               path='/movies/:id'
               render={({ match })=>< MovieDetail selectedMovie=
-                   {this.props.movies.find(movie => movie.id === parseInt(match.params.id))}/>}/>
+                  {this.props.movies.find(movie => movie.id === parseInt(match.params.id))}/>}/>
             <Route
               path='/'
               render={()=>< MovieContainer />} />
