@@ -1,0 +1,32 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.login-form {
+  @include display-flex (column nowrap, center, center);
+  border: 0.25em $primary-color solid;
+  flex: 0.5;
+  justify-self: center;
+  align-self: center;
+  border-radius: 1em;
+  background-color: $card-background;
+  padding: 1.5em;
+  margin: 2em;
+  width: 30%;
+  &__email,
+  &__password {
+    font-family: $main-font;
+    font-size: 1.5em;
+    margin: 1em 0 0.75em;
+  }
+  &__button{
+    @include button-style;
+    margin: 0.25em 0 0.75em;
+    width: 100%;
+    &:hover {
+      transform: none;
+    }
+  }
+  &__error {
+    color: red;
+    }
+}
