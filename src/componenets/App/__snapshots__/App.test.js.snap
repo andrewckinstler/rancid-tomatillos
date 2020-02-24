@@ -1,9 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App should match a snapshot 1`] = `
-<main>
+<main
+  className="main"
+>
   <Header />
-  <div>
+  <div
+    className="content"
+  >
     <Switch>
       <Route
         path="/movies/:id"
