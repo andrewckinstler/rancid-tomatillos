@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { MovieCard } from '../../componenets/MovieCard/MovieCard.js'
-import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './MovieContainer.scss'
 
@@ -14,7 +13,7 @@ export class MovieContainer extends Component {
                 posterPath={movie.poster_path}
                 id={movie.id}
                 averageRating={movie.average_rating}
-             />
+            />
     })
     
     return (
@@ -32,11 +31,5 @@ const mapStateToProps = state => {
     loadingStatus: state.loadingStatus
   }
 }
-
-// const mapDispatchToProps = dispatch => ({
-//   loadingMovies: (loadingStatus) => dispatch(loadingMovies(loadingStatus)),
-//   getMovies: (movies) => dispatch(getMovies(movies)),
-//   getRatings: (ratings) => dispatch(getRatings(ratings))
-// })
 
 export default connect(mapStateToProps)(MovieContainer);
