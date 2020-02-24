@@ -11,5 +11,23 @@ describe('actions', () => {
     expect(result).toEqual(expectedAction)
   });
 
-  it('shoul')
+  it('should have a type of LOADING_MOVIES', () => {
+    const loadingStatus = true;
+    const expectedAction = {
+      type: 'LOADING_MOVIES',
+      loadingStatus: false
+    }
+    const result = actions.loadingMovies(loadingStatus)
+    expect(result).toEqual(expectedAction)
+    })
+
+    it('should have a type of ADD_USER', () => {
+      const user = {name: 'me', id: 123}
+      const expectedAction = {
+        type: 'ADD_USER',
+        user: user
+      }
+      const result = actions.addUser(user)
+      expect(result).toEqual(expectedAction)
+    })
 });
