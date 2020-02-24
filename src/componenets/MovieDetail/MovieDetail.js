@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 import './MovieDetail.scss';
 import { connect } from 'react-redux';
-import { postRating } from '../../actions';
+import { postRating, deleteRating } from '../../actions';
 
 export class MovieDetail extends Component {
   constructor() {
     super();
     this.state = {
-      rating: 0
+      currentRating: 1
     }
+  }
+
+  handleRatingChange = e => {
+    this.setState({[e.target.name]: parseInt(e.target.value)})
+    console.log(this.state)
+  }
+
+  submitRating() {
+    // console.log(this.props.user)
+    // const currentRating = []
   }
 
   render() {
@@ -25,10 +35,10 @@ export class MovieDetail extends Component {
           <div className='movie-detail__details'>
             <h2 className='movie-detail__title'>{title}</h2>
             <p className='movie-detail__average-rating'>{`Average Rating: ${average_rating.toFixed(2)}`}</p>
-          {this.props.user ? <><label for='user-rating'>User Rating: 6</label> 
-          <input type='range' min='1' max='10' id='user-rating' name='user-rating' /></>
+          {this.props.user ? <><label for='currentRating'>User Rating: 6</label> 
+          <input onChange={this.handleRatingChange} value={this.state.currentRating} type='range' min='1' max='10' id='user-rating' name='currentRating' /></>
           : null}
-            <button className='movie-detail__button'>Add Rating</button>
+            <button className='movie-detail__button' onClick={() => this.submitRating() }>Add Rating</button>
             <p className='movie-detail__overview'>{overview}</p>
           </div>
         </div>
@@ -44,7 +54,8 @@ export const mapStateToProps = state => ({
 })
 
 export const mapDispatchToProps = dispatch => ({
-  postRating: (rating) => dispatch(postRating(rating))
+  postRating: (rating) => dispatch(postRating(rating)),
+  deleteRating: (rating) => dispatch(deleteRating(rating))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);
