@@ -6,7 +6,7 @@ import './MovieContainer.scss'
 
 
 export class MovieContainer extends Component {
-  
+
   render() {
     let movieCards = this.props.movies.map(movie => {
       return <MovieCard
@@ -16,7 +16,7 @@ export class MovieContainer extends Component {
                 averageRating={movie.average_rating}
              />
     })
-    
+
     return (
       <section className='movie-container'>
         {movieCards}
@@ -25,18 +25,12 @@ export class MovieContainer extends Component {
   }
 }
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return {
     movies: state.movies,
     ratings: state.ratings,
     loadingStatus: state.loadingStatus
   }
 }
-
-// const mapDispatchToProps = dispatch => ({
-//   loadingMovies: (loadingStatus) => dispatch(loadingMovies(loadingStatus)),
-//   getMovies: (movies) => dispatch(getMovies(movies)),
-//   getRatings: (ratings) => dispatch(getRatings(ratings))
-// })
 
 export default connect(mapStateToProps)(MovieContainer);
