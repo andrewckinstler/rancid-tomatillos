@@ -19,8 +19,8 @@ const Header = (props) => {
       </Link>
       {
         !props.user 
-        ? <Link to={'/login'} className="header_logoff-button">Login</Link>
-        : <Link to={'/'} className="header_logoff-button"
+        ? <Link to={'/login'} className="header_log-button">Login</Link>
+        : <Link to={'/'} className="header_log-button"
         onClick={() => props.logout() }>Logout</Link>
       }
     </article>
