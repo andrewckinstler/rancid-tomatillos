@@ -7,7 +7,7 @@ describe('userReducer', () => {
     expect(result).toEqual(expected);
   })
 
-  it('should return the correct state when type is LOADING_MOVIES', () => {
+  it('should return the correct state when type is ADD_USER', () => {
     const mockAction = {
       type: 'ADD_USER',
       user: {name: 'me', id: 123},
