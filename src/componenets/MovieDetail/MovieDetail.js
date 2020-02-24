@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './MovieDetail.scss';
 import { connect } from 'react-redux';
-import { postRating, deleteRating } from '../../actions';
-import { postRatingToApi } from '../../apiCalls/apiCalls';
+import { postRating, deleteRating, getRatings } from '../../actions';
+import { postRatingToApi, deleteRatingFromApi, fetchRatingsAPI } from '../../apiCalls/apiCalls';
 
 export class MovieDetail extends Component {
   constructor() {
@@ -16,12 +16,25 @@ export class MovieDetail extends Component {
     this.setState({[e.target.name]: parseInt(e.target.value)})
   }
 
+  loadRatings() {
+    fetchRatingsAPI(this.props.user.id)
+    .then(data => {
+      this.props.getRatings(data.ratings)
+    })
+  }
+
   submitRating() {
-    console.log()
     let movieId = this.props.selectedMovie.id
-    let rating = this.state.currentRating
+    let newRating = this.state.currentRating
+    let oldRating = this.props.ratings.find(rating => movieId === rating.movie_id)
     let userId = this.props.user.id
-    // postRatingToApi(movieId, rating, userId)
+    // if (oldRating) {
+    //   // await deleteRatingFromApi(oldRating.id, userId)
+    //   // await this.loadRatings()
+    //   await postRatingToApi(movieId, newRating, userId)
+    // } else {
+      postRatingToApi(movieId, newRating, userId)
+    // }
   }
 
   render() {
@@ -58,7 +71,8 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   postRating: (rating) => dispatch(postRating(rating)),
-  deleteRating: (rating) => dispatch(deleteRating(rating))
+  deleteRating: (rating) => dispatch(deleteRating(rating)),
+  getRatings: (ratings) => dispatch(getRatings(ratings))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);

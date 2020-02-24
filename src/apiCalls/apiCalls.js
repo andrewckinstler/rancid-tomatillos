@@ -55,4 +55,17 @@ export const postRatingToApi = (movieId, rating, userId) => {
             return res.json()})
 }
 
+export const deleteRatingFromApi = (ratingId, userId) => {
+  const url = `https://rancid-tomatillos.herokuapp.com/api/v1/users/${userId}/ratings/${ratingId}`
+  const options = {
+    method: 'DELETE'}
+  return fetch(url, options)
+          .then(res => {
+            if(!res.ok) {
+              throw Error('Failed delete rating.')
+            }
+            // return res.json()})
+          })
+}
+
 
