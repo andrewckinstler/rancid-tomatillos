@@ -34,3 +34,25 @@ export const userSignIn = (user) => {
             }
             return res.json()})
 }
+
+export const postRatingToApi = (movieId, rating, userId) => {
+  const url = `https://rancid-tomatillos.herokuapp.com/api/v1/users/${userId}/ratings`
+  const options = {
+    method: 'POST',
+    body: JSON.stringify({
+      movie_id: movieId,
+      rating
+    }),
+    headers: {
+      'Content-Type': 'application/json'  
+    }
+  } 
+  return fetch(url, options)
+          .then(res => {
+            if(!res.ok) {
+              throw Error('Failed post rating.')
+            }
+            return res.json()})
+}
+
+

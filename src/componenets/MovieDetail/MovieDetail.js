@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './MovieDetail.scss';
 import { connect } from 'react-redux';
 import { postRating, deleteRating } from '../../actions';
+import { postRatingToApi } from '../../apiCalls/apiCalls';
 
 export class MovieDetail extends Component {
   constructor() {
@@ -13,10 +14,15 @@ export class MovieDetail extends Component {
 
   handleRatingChange = e => {
     this.setState({[e.target.name]: parseInt(e.target.value)})
-    console.log(this.state)
   }
 
   submitRating() {
+    console.log(postRatingToApi)
+    let movieId = this.props.selectedMovie.id
+    let rating = this.state.currentRating
+    let userId = this.props.user.id
+    // console.log(movieId, rating, userId)
+    postRatingToApi(movieId, rating, userId)
     // console.log(this.props.user)
     // const currentRating = []
   }
