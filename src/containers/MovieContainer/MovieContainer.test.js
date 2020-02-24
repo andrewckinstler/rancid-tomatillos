@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { MovieContainer } from './MovieContainer.js';
+import { MovieContainer, mapStateToProps } from './MovieContainer.js';
 
 describe('MovieContainer', () => {
   let wrapper, mockProps;
@@ -18,5 +18,22 @@ describe('MovieContainer', () => {
   })
   it('should match a snapshot', () => {
     expect(wrapper).toMatchSnapshot()
+  })
+  describe('mapStateToProps', () => {
+    it('should return an object with a loading status, movies, and ratings array', () => {
+      const mockState = {
+        movies: [{title: 'Parasite', rating: 9}, {title: '1917', rating: 8}],
+        ratings: [{id: 25, rating: 9}, {id: 27, rating: 4}],
+        user: {id: 123, name: 'me'},
+        loadingStatus: true
+      }
+      const expected = {
+        movies: [{title: 'Parasite', rating: 9}, {title: '1917', rating: 8}],
+        ratings: [{id: 25, rating: 9}, {id: 27, rating: 4}],
+        loadingStatus: true
+      }
+      const mappedProps = mapStateToProps(mockState)
+      expect(mappedProps).toEqual(expected)
+    })
   })
 })

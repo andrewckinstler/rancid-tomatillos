@@ -25,8 +25,9 @@ export class MovieDetail extends Component {
           <div className='movie-detail__details'>
             <h2 className='movie-detail__title'>{title}</h2>
             <p className='movie-detail__average-rating'>{`Average Rating: ${average_rating.toFixed(2)}`}</p>
-            <label for='user-rating'>User Rating: 6</label>
-            <input className='movie-detail__rating-slider' type='range' min='1' max='10' id='user-rating' name='user-rating' />
+          {this.props.user ? <><label for='user-rating'>User Rating: 6</label> 
+          <input type='range' min='1' max='10' id='user-rating' name='user-rating' /></>
+          : null}
             <button className='movie-detail__button'>Add Rating</button>
             <p className='movie-detail__overview'>{overview}</p>
           </div>
@@ -36,12 +37,13 @@ export class MovieDetail extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   movies: state.movies,
-  ratings: state.ratings
+  ratings: state.ratings,
+  user: state.user
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   postRating: (rating) => dispatch(postRating(rating))
 })
 

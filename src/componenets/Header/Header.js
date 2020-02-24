@@ -1,21 +1,38 @@
 import React from 'react';
 import './Header.scss';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logout } from '../../actions'
 
-const Header = () => {
-	return(
+const Header = (props) => {
+	return (
     <article className="header_main-container">
-      <article className="header_welcome-text">
-        <h1>Welcome, [user]!</h1>
-        <h3>Avg. Rating: 5.5</h3>
-        <h3>Number of Ratings:</h3>
-      </article>
+      {!props.user 
+      ? null
+      : <article className="header_welcome-text">
+          <h1>Welcome, [user]!</h1>
+          <h3> Avg. Rating: 5.5 </h3>
+          <h3>Number of Ratings:</h3>
+        </article>}
       <Link to={'/'} className="header_main-link">
         Rancid Tomatillos
       </Link>
-      <button className="header_log-button">Log Off</button>
+      {
+        !props.user 
+        ? <Link to={'/login'} className="header_logoff-button">Login</Link>
+        : <Link to={'/'} className="header_logoff-button"
+        onClick={() => props.logout() }>Logout</Link>
+      }
     </article>
   )
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch( logout() )
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

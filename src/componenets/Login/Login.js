@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { userSignIn } from '../../apiCalls/apiCalls'
 import { connect } from 'react-redux';
-import { addUser } from '../../actions';
-
+import { addUser, errorMsg } from '../../actions';
+import { Redirect } from 'react-router-dom'
 
 export class Login extends Component {
   constructor(props) {
@@ -21,8 +21,14 @@ export class Login extends Component {
     const { addUser } = this.props;
     const { email, password } = this.state;
     const user = { email, password };
-    const result = await userSignIn(user);
-    addUser(result.user)
+    try { 
+      const result = await userSignIn(user);
+      addUser(result.user)
+      this.props.errorMsg('')
+    }
+    catch (e) {
+      this.props.errorMsg('username or password incorrect')
+    } 
   }
 
   render() {
@@ -44,12 +50,21 @@ export class Login extends Component {
           onChange={this.handleChange}
         />
         <button onClick={() => this.handleClick()}>Login</button>
+        <p>{this.props.error}</p>
+        {this.props.user ? <Redirect to='/' /> : null}
     </div>)
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  addUser: (user) => dispatch( addUser(user) )
+
+const mapStateToProps = state => ({
+  error: state.error,
+  user: state.user
 })
 
-export default connect(null, mapDispatchToProps)(Login)
+const mapDispatchToProps = dispatch => ({
+  addUser: (user) => dispatch( addUser(user) ),
+  errorMsg: error => dispatch( errorMsg(error) )
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
