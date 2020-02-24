@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Rancid Tomatillos
-### Noah Gambee, Andrew Kinstler, Grayson Palmer, Jesse Maxim
+# Rancid Tomatillos - Mod 3 Group Project (02/25/2010)
+### Andrew Kinstler, Grayson Palmer, Jesse Maxim, and Noah Gambee
 
 ## Learning Goals
 - Reinforce React fundamentals and React Router
