@@ -23,8 +23,9 @@ export class MovieDetail extends Component {
         <div className='movie-detail__info' >
           <h2 className='movie-detail__title'>{title}</h2>
           <p className='movie-detail__average-rating'>{`Average Rating: ${average_rating}`}</p>
-          <label for='user-rating'>User Rating: 6</label>
-          <input type='range' min='1' max='10' id='user-rating' name='user-rating' />
+          {this.props.user ? <><label for='user-rating'>User Rating: 6</label> 
+          <input type='range' min='1' max='10' id='user-rating' name='user-rating' /></>
+          : null}
           <p className='movie-detail__overview'>{overview}</p>
         </div>
       </section>
@@ -34,7 +35,8 @@ export class MovieDetail extends Component {
 
 export const mapStateToProps = state => ({
   movies: state.movies,
-  ratings: state.ratings
+  ratings: state.ratings,
+  user: state.user
 })
 
 export const mapDispatchToProps = dispatch => ({

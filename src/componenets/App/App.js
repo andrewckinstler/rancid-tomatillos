@@ -45,6 +45,10 @@ export class App extends Component {
         <Header />
         <div className='content'>
           <Switch>
+            <Route 
+              path='/login'
+              render={() => <Login />}
+            />
             <Route
               path='/movies/:id'
               render={({ match })=>< MovieDetail selectedMovie=

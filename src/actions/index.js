@@ -23,3 +23,13 @@ export const postRating = rating => ({
   type: 'POST_RATING',
   rating
 });
+
+export const logout = () => ({
+  type: 'LOGOUT_USER',
+  user: null
+})
+
+export const errorMsg = error => ({
+  type: 'ERROR_MSG',
+  error
+})
