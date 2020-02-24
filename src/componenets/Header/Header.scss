@@ -1,65 +1,42 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
 .header_main-container {
-	font-family: 'Nunito', sans-serif;
-	background: #0a1612;
-	color: #ffffff;
-	border-bottom: 3px solid #008F11;
-	background: linear-gradient(to right, #003306, black);
+	background: $background-color;
+	background: $background-gradient;
+	border-bottom: 0.2em solid $primary-color;
+	color: $text-color;
 	display: grid;
-	grid-template-columns: 33% 33% 33%;
-	grid-template-areas: 'welcome-text title logoff'
+	grid-template-areas: 'welcome-text title logoff';
+	grid-template-columns: 1fr 1fr 1fr;
+	height: 145px;
 }
 
 .header_welcome-text {
+	font-family: $main-font;
 	grid-area: welcome-text;
 	margin-left: 5%;
 }
 
 .header_main-link {
-	font-weight: 700;
-	text-decoration: none;
-	color: white;
-	grid-area: title;
+	@include box-shadow(0 0 0 0, 0 0 1em 0);
 	align-self: center;
-	justify-self: center;
-	padding-left: 4%;
-	padding-right: 4%;
+	border-left: .07em solid $primary-color;
+	border-radius: 1em;
+	border-right: .07em solid $primary-color;
+	color: $text-color;
+	font-family: $title-font;
 	font-size: 3rem;
-	border-right: 3px solid #008F11;
-	border-left: 3px solid #008F11;
-	&:hover {
-		animation: shadow-drop-2-center 0.3s ease-in both;
-	}
+	font-weight: 700;
+	grid-area: title;
+	justify-self: center;
+	padding: 0.25em 0.8em;
+	text-decoration: none;
 }
 
-
-.header_logoff-button {
+.header_log-button {
+	@include button-style;
 	grid-area: logoff;
 	justify-self: end;
-	align-self: center;
-	cursor: pointer;
-	font-family: 'Nunito', sans-serif;
-	font-size: 1.2rem;
-	font-weight: 900;
-	width: 30%;
-	height: 30%;
-	background: #008F11;
-	color: #0a1612;
-	border: none;
-	border-radius: 4%;
-}
-
-.header_logoff-button:hover {
-	transform: rotate(6deg);
-	transition-duration: .3s;
-}
-
-@keyframes shadow-drop-2-center {
-  0% {
-    transform: translateZ(0);
-    box-shadow: 0 0 0 0 rgba(0, 143, 17, 1);
-  }
-  100% {
-    transform: translateZ(50px);
-    box-shadow: 0 0 20px 0px rgba(0, 143, 17, 1);
-  }
+	margin: 2em;
 }

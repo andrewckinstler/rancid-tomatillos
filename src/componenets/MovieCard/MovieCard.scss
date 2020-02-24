@@ -1,43 +1,52 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
 .movie-card {
-  border-radius: 3%;
-  background-color: #474747;
-  width: 15%;
-  padding: 2%;
-  margin: 2%;
+  @include box-shadow(0 0 0.75em 0, 0 0 2.5em 0);
+  border-radius: 1em;
+  background-color: $card-background;
+  width: 15em;
+  padding: 1.5em;
+  margin: 2em;
   display: grid;
-  font-family: 'Nunito', sans-serif;
-  box-shadow: 0 0px 10px #afe9b6;
   text-decoration: none;
 }
 
 .poster-img {
   width: 100%;
   height: auto;
-  border-radius: 2%;
-  box-shadow: 2px 2px 5px black;
+  border-radius: 0.5em;
+  box-shadow: $black-box-shadow
 }
 
 .movie-card-title {
   text-align: center;
-  font-size: 2rem;
-  color: white;
+  font-size: 1.5rem;
+  color: $text-color;
   margin: 5%;
 }
 
 .ratings-footer {
-  display: grid;
+  @include display-flex (row, center, center);
   width: 100%;
-
 }
 
 .movie-rating {
-  justify-self: end;
-  padding: 1.5%;
-  align-self: end;
+  align-self: center;
+  justify-self: center;
   font-weight: 900;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   border-top: 2px solid #008F11;
   border-bottom: 2px solid #008F11;
-  border-radius: 5%;
-  color: white;
+  border-radius: 0.5em;
+  color: $text-color;
+  margin: 0 0.7em;
+  padding: 0.5em;
+  text-align: center;
+  width: 45%;
+}
+
+.user-rating {
+  border-top: 2px solid $accent-color;
+  border-bottom: 2px solid $accent-color;
 }

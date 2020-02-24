@@ -21,12 +21,16 @@ export class MovieDetail extends Component {
     return (
       <section className='movie-detail' style={backgroundStyling}>
         <div className='movie-detail__info' >
-          <h2 className='movie-detail__title'>{title}</h2>
-          <p className='movie-detail__average-rating'>{`Average Rating: ${average_rating}`}</p>
+          <img className='movie-detail__poster' alt={`movie poster for ${title}`} src={poster_path} />
+          <div className='movie-detail__details'>
+            <h2 className='movie-detail__title'>{title}</h2>
+            <p className='movie-detail__average-rating'>{`Average Rating: ${average_rating.toFixed(2)}`}</p>
           {this.props.user ? <><label for='user-rating'>User Rating: 6</label> 
           <input type='range' min='1' max='10' id='user-rating' name='user-rating' /></>
           : null}
-          <p className='movie-detail__overview'>{overview}</p>
+            <button className='movie-detail__button'>Add Rating</button>
+            <p className='movie-detail__overview'>{overview}</p>
+          </div>
         </div>
       </section>
     )

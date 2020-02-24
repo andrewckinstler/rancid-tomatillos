@@ -1,11 +1,15 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
 .main {
+  @include display-flex (column, default, default);
   display: flex;
   flex-direction: column;
+  font-family: $main-font;
   height: 100vh;
 }
 
 .content {
-  display: flex;
+  @include display-flex (column, default, default);
   flex: 1;
-  flex-direction: column;
 }

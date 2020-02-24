@@ -1,0 +1,31 @@
+@mixin box-shadow ($start, $end) {
+  box-shadow: $start $primary-color;
+  transition: box-shadow 0.3s ease-in-out;
+	&:hover {
+		box-shadow: $end $primary-color
+	}
+}
+
+@mixin display-flex ($flow, $align, $justify) {
+  display: flex;
+  flex-flow: $flow;
+  align-content: $align;
+  justify-content: $justify;
+}
+
+@mixin button-style {
+  align-self: center;
+	background: $primary-color;
+	border-radius: 0.25em;
+	border: none;
+	color: $background-color;
+	cursor: pointer;
+	font-family: $main-font;
+	font-size: 1.2rem;
+  font-weight: 900;
+  padding: 0.5em 2em;
+	transition: transform 0.3s ease-in-out;
+	&:hover {
+		transform: scale(1.2);
+  }
+}
