@@ -17,14 +17,11 @@ export class MovieDetail extends Component {
   }
 
   submitRating() {
-    console.log(postRatingToApi)
+    console.log()
     let movieId = this.props.selectedMovie.id
     let rating = this.state.currentRating
     let userId = this.props.user.id
-    // console.log(movieId, rating, userId)
-    postRatingToApi(movieId, rating, userId)
-    // console.log(this.props.user)
-    // const currentRating = []
+    // postRatingToApi(movieId, rating, userId)
   }
 
   render() {
@@ -41,7 +38,7 @@ export class MovieDetail extends Component {
           <div className='movie-detail__details'>
             <h2 className='movie-detail__title'>{title}</h2>
             <p className='movie-detail__average-rating'>{`Average Rating: ${average_rating.toFixed(2)}`}</p>
-          {this.props.user ? <><label for='currentRating'>User Rating: 6</label> 
+          {this.props.user ? <><label for='currentRating'>User Rating: { this.state.currentRating }</label> 
           <input onChange={this.handleRatingChange} value={this.state.currentRating} type='range' min='1' max='10' id='user-rating' name='currentRating' /></>
           : null}
             <button className='movie-detail__button' onClick={() => this.submitRating() }>Add Rating</button>
