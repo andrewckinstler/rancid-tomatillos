@@ -30,4 +30,24 @@ describe('actions', () => {
       const result = actions.addUser(user)
       expect(result).toEqual(expectedAction)
     })
+
+    it('should have a type of GET_RATINGS', () => {
+      const ratings = [{title: 'Parasite', rating: 10}, {title: 'Sonic', rating: 5}]
+      const expectedAction = {
+        type: 'GET_RATINGS',
+        ratings: ratings
+      }
+      const result = actions.getRatings(ratings)
+      expect(result).toEqual(expectedAction)
+    })
+
+    it('should have a type of POST_RATING', () => {
+      const rating = {title: 'Parasite', id: 25, rating: 10}
+      const expectedAction = {
+        type: 'POST_RATING',
+        rating: rating
+      }
+      const result = actions.postRating(rating)
+      expect(result).toEqual(expectedAction)
+    })
 });
