@@ -48,7 +48,7 @@ export class Login extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   addUser: (user) => dispatch( addUser(user) )
 })
 
