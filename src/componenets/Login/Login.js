@@ -56,6 +56,7 @@ export class Login extends Component {
   }
 }
 
+
 const mapStateToProps = state => ({
   error: state.error,
   user: state.user

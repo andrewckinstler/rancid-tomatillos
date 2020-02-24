@@ -33,13 +33,13 @@ export class MovieDetail extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   movies: state.movies,
   ratings: state.ratings,
   user: state.user
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   postRating: (rating) => dispatch(postRating(rating))
 })
 
