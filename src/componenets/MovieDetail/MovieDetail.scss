@@ -1,36 +1,50 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
 .movie-detail {
-  align-items: center;
+  @include display-flex (row, center, center);
   flex: 1;
-  font-family: 'Nunito', sans-serif;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
   &:first-child {
     flex: 1;
   }
   &__info {
-    align-items: center;
-    display: flex;
-    border-radius: 2%;
-    color: white;
-    font-size: 1.5rem;
-    flex-flow: column nowrap;
-    justify-content: center;
-    padding: 1em;
+    @include display-flex (row, center, space-around);
+    border-radius: 0.75em;
+    color: $text-color;
+    font-size: 1.25rem;
+    margin: 1em;
+    padding: 0.75em;
+    width: 70%;
+    background-color: $card-background;
+    box-shadow: $black-box-shadow
+  }
+  &__poster {
+    border-radius: 0.75em;
+    box-shadow: $black-box-shadow;
+    margin: 0.5em 0;
+    width: 35%;
+  }
+  &__details {
+    @include display-flex (column, center, center);
     width: 45%;
-    background-color: rgba(42, 42, 42, .9);
   }
   &__title {
+    font-family: $title-font;
     font-weight: 900;
     font-size: 2.5rem;
+    margin: 0;
     text-align: center;
   }
   &__average-rating {
     font-weight: 700;
   }
   &__overview {
-    // text-align: center;
-    width: 80%;
+    height: 15em;
+    overflow: scroll;
+    text-align: left;
+    width: 90%;
   }
-
+  &__button {
+    @include button_style;
+  }
 }
