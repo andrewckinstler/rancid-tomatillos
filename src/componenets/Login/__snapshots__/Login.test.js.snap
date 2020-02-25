@@ -1,8 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login should match a snapshot 1`] = `
-<div>
+<div
+  className="login-form"
+>
   <input
+    className="login-form__email"
     name="email"
     onChange={[Function]}
     placeholder="Email..."
@@ -10,13 +13,18 @@ exports[`Login should match a snapshot 1`] = `
     value=""
   />
   <input
+    className="login-form__password"
     name="password"
     onChange={[Function]}
     placeholder="Password..."
     type="password"
     value=""
   />
+  <p
+    className="login-form__error"
+  />
   <button
+    className="login-form__button"
     onClick={[Function]}
   >
     Login
