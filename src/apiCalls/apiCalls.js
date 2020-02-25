@@ -22,10 +22,10 @@ export const userSignIn = (user) => {
     method: 'POST',
     body: JSON.stringify(user),
     headers: {
-      'Content-Type': 'application/json'  
+      'Content-Type': 'application/json'
     }
   }
-  
+
   return fetch(url, options)
           .then(res => {
             if(!res.ok) {
@@ -43,15 +43,15 @@ export const postRatingToApi = (movieId, rating, userId) => {
       rating
     }),
     headers: {
-      'Content-Type': 'application/json'  
+      'Content-Type': 'application/json'
     }
-  } 
+  }
   return fetch(url, options)
           .then(res => {
             if(!res.ok) {
               throw Error('Failed post rating.')
             }
-            // return res.json()
+            return res.json()
           })
 }
 
