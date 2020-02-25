@@ -12,7 +12,7 @@
     border-radius: 0.75em;
     color: $text-color;
     font-size: 1.25rem;
-    margin: 1em;
+    margin: 0.5em;
     padding: 0.75em;
     width: 70%;
     background-color: $card-background;
@@ -22,7 +22,7 @@
     border-radius: 0.75em;
     box-shadow: $black-box-shadow;
     margin: 0.5em 0;
-    width: 35%;
+    width: 40%;
   }
   &__details {
     @include display-flex (column, center, center);
@@ -42,7 +42,7 @@
     font-weight: 700;
   }
   &__overview {
-    height: 12em;
+    height: 10em;
     overflow: scroll;
     text-align: left;
     width: 100%;
@@ -50,14 +50,21 @@
   &__rating-input{
     margin: 1em 0 0.5em;
   }
+  &__rating-buttons {
+    @include display-flex(row nowrap, center, space-between);
+  }
   &__button {
     @include button_style;
     margin: 0.5em;
     padding: 1em;
+    width: 10em;
     &:hover {
       transform: none;
       background-color: darken($primary-color, 10);
     }
+  }
+  &__delete-rating {
+    background-color: $accent-color;
   }
   &__user-rating {
     @include display-flex(row nowrap, center, space-between);
