@@ -9,7 +9,7 @@ describe('Header', () => {
   beforeEach(() => {
     wrapper = shallow(<Header
       ratings = {[{rating: 2}, {rating: 3}]}
-       />)
+      />)
   })
   it('should match a snapshot', () => {
     expect(wrapper).toMatchSnapshot()

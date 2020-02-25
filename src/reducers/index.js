@@ -12,7 +12,6 @@ const rootReducer = combineReducers({
   loadingStatus: loadingReducer,
   user: userReducer,
   ratings: ratingsReducer,
-  loadingStatus: loadingReducer,
   error: errorReducer
 })
 

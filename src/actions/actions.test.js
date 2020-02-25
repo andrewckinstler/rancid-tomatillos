@@ -5,7 +5,7 @@ describe('actions', () => {
     const movies = [{title: 'Parasite'}, {title: 'Sonic'}];
     const expectedAction = {
       type: 'GET_MOVIES',
-      movies: movies
+      movies
     }
     const result = actions.getMovies(movies)
     expect(result).toEqual(expectedAction)
@@ -25,7 +25,7 @@ describe('actions', () => {
       const user = {name: 'me', id: 123}
       const expectedAction = {
         type: 'ADD_USER',
-        user: user
+        user
       }
       const result = actions.addUser(user)
       expect(result).toEqual(expectedAction)
@@ -35,7 +35,7 @@ describe('actions', () => {
       const ratings = [{title: 'Parasite', rating: 10}, {title: 'Sonic', rating: 5}]
       const expectedAction = {
         type: 'GET_RATINGS',
-        ratings: ratings
+        ratings
       }
       const result = actions.getRatings(ratings)
       expect(result).toEqual(expectedAction)
@@ -45,7 +45,7 @@ describe('actions', () => {
       const rating = {title: 'Parasite', id: 25, rating: 10}
       const expectedAction = {
         type: 'POST_RATING',
-        rating: rating
+        rating
       }
       const result = actions.postRating(rating)
       expect(result).toEqual(expectedAction)
@@ -55,7 +55,7 @@ describe('actions', () => {
       const rating = {title: 'Parasite', id: 25, rating: 10}
       const expectedAction = {
         type: 'DELETE_RATING',
-        rating: rating
+        rating
       }
       const result = actions.deleteRating(rating)
       expect(result).toEqual(expectedAction)
@@ -65,7 +65,7 @@ describe('actions', () => {
       const user = null
       const expectedAction = {
         type: 'LOGOUT_USER',
-        user: user
+        user
       }
       const result = actions.logout()
       expect(result).toEqual(expectedAction)
@@ -75,7 +75,7 @@ describe('actions', () => {
       const error = 'this is an error message'
       const expectedAction = {
         type: 'ERROR_MSG',
-        error: error
+        error
       }
       const result = actions.errorMsg(error)
       expect(result).toEqual(expectedAction)
