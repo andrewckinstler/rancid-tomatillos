@@ -4,29 +4,17 @@ exports[`Header should match a snapshot 1`] = `
 <article
   className="header_main-container"
 >
-  <article
-    className="header_welcome-text"
-  >
-    <h1>
-      Welcome, [user]!
-    </h1>
-    <h3>
-       Avg. Rating: 5.5 
-    </h3>
-    <h3>
-      Number of Ratings:
-    </h3>
-  </article>
   <Link
     className="header_main-link"
     to="/"
   >
     Rancid Tomatillos
   </Link>
-  <button
-    className="header_logoff-button"
+  <Link
+    className="header_log-button"
+    to="/login"
   >
-    Log Off
-  </button>
+    Login
+  </Link>
 </article>
 `;
