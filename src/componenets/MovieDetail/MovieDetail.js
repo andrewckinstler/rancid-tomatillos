@@ -12,6 +12,10 @@ export class MovieDetail extends Component {
     }
   }
 
+  findPreviousRating() {
+    return this.props.ratings.find(rating => this.props.selectedMovie.id === rating.movie_id)
+  }
+
   handleRatingChange = e => {
     this.setState({[e.target.name]: parseInt(e.target.value)})
   }
@@ -26,15 +30,25 @@ export class MovieDetail extends Component {
   submitRating() {
     let movieId = this.props.selectedMovie.id
     let newRating = this.state.currentRating
-    let oldRating = this.props.ratings.find(rating => movieId === rating.movie_id)
+    let oldRating = this.findPreviousRating()
     let userId = this.props.user.id
-    // if (oldRating) {
-    //   // await deleteRatingFromApi(oldRating.id, userId)
-    //   // await this.loadRatings()
-    //   await postRatingToApi(movieId, newRating, userId)
-    // } else {
+    if (!oldRating) {
       postRatingToApi(movieId, newRating, userId)
-    // }
+        .then(res => this.loadRatings())
+    } else {
+      deleteRatingFromApi(oldRating.id, userId)
+        .then(res => {
+          this.loadRatings()
+        })
+      postRatingToApi(movieId, newRating, userId)
+    }
+  }
+
+  componentDidMount() {
+    let previousRating = this.findPreviousRating();
+    if(previousRating) {
+      this.setState({currentRating: previousRating.rating});
+    }
   }
 
   render() {
@@ -42,8 +56,8 @@ export class MovieDetail extends Component {
     const backgroundStyling = {
       background: `linear-gradient(to top, rgba(42, 42, 42, .75), rgba(42, 42, 42, 0)), url(${backdrop_path}) no-repeat center top`,
       backgroundSize: 'cover',
-
     }
+    
     return (
       <section className='movie-detail' style={backgroundStyling}>
         <div className='movie-detail__info' >
@@ -51,10 +65,13 @@ export class MovieDetail extends Component {
           <div className='movie-detail__details'>
             <h2 className='movie-detail__title'>{title}</h2>
             <p className='movie-detail__average-rating'>{`Average Rating: ${average_rating.toFixed(2)}`}</p>
-          {this.props.user ? <><label for='currentRating'>User Rating: { this.state.currentRating }</label> 
-          <input onChange={this.handleRatingChange} value={this.state.currentRating} type='range' min='1' max='10' id='user-rating' name='currentRating' /></>
-          : null}
+          {this.props.user ? 
+          <>
+            <label for='currentRating'>User Rating: { this.state.currentRating }</label> 
+            <input onChange={this.handleRatingChange} value={this.state.currentRating} type='range' min='1' max='10' id='user-rating' name='currentRating' value={this.state.currentRating} />
             <button className='movie-detail__button' onClick={() => this.submitRating() }>Add Rating</button>
+          </>
+          : null}
             <p className='movie-detail__overview'>{overview}</p>
           </div>
         </div>
