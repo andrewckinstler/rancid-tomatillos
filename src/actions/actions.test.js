@@ -51,5 +51,33 @@ describe('actions', () => {
       expect(result).toEqual(expectedAction)
     })
 
-    // need tests for DELETE_RATING, LOGOUT_USER, and ERROR_MSG
+    it('should have a type of DELETE_RATING', () => {
+      const rating = {title: 'Parasite', id: 25, rating: 10}
+      const expectedAction = {
+        type: 'DELETE_RATING',
+        rating: rating
+      }
+      const result = actions.deleteRating(rating)
+      expect(result).toEqual(expectedAction)
+    })
+
+    it('should have a type of LOGOUT_USER', () => {
+      const user = null
+      const expectedAction = {
+        type: 'LOGOUT_USER',
+        user: user
+      }
+      const result = actions.logout()
+      expect(result).toEqual(expectedAction)
+    })
+
+    it('should have a type of ERROR_MSG', () => {
+      const error = 'this is an error message'
+      const expectedAction = {
+        type: 'ERROR_MSG',
+        error: error
+      }
+      const result = actions.errorMsg(error)
+      expect(result).toEqual(expectedAction)
+    })
 });
