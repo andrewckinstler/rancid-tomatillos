@@ -1,5 +1,5 @@
 import React from 'react';
-import { loadingMovies, getMovies, getRatings } from '../../actions/index.js'
+import { loadingMovies, getMovies } from '../../actions/index.js'
 import { shallow } from 'enzyme';
 import { App, mapStateToProps, mapDispatchToProps } from './App.js';
 
