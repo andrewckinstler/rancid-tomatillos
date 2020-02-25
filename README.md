@@ -18,11 +18,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - GitHub Projects
 
 ## Screenshots 
-![screenshot 1](https://user-images.githubusercontent.com/45186438/75292823-e571f200-581c-11ea-9ce5-287062977d8d.png)
-![screenshot 2](https://user-images.githubusercontent.com/45186438/75292843-ec006980-581c-11ea-84e1-a42314f3d113.png)
-![screenshot](https://user-images.githubusercontent.com/45186438/75292854-f0c51d80-581c-11ea-8c0c-1eb26b4eb734.png)
-<img width="1438" alt="Screen Shot 2020-02-25 at 3 17 01 PM" src="https://user-images.githubusercontent.com/45186438/75292860-f589d180-581c-11ea-98c9-e0057fdd6bf0.png">
-<img width="1440" alt="Screen Shot 2020-02-25 at 3 16 53 PM" src="https://user-images.githubusercontent.com/45186438/75292861-f6226800-581c-11ea-8ac3-30fdd1e390b7.png">
+![screenshot1](https://user-images.githubusercontent.com/45186438/75292861-f6226800-581c-11ea-8ac3-30fdd1e390b7.png)
+![Screensjot2](https://user-images.githubusercontent.com/45186438/75292860-f589d180-581c-11ea-98c9-e0057fdd6bf0.png)
+![screenshot3](https://user-images.githubusercontent.com/45186438/75292854-f0c51d80-581c-11ea-8c0c-1eb26b4eb734.png)
+![screenshot4](https://user-images.githubusercontent.com/45186438/75292823-e571f200-581c-11ea-9ce5-287062977d8d.png)
+![screenshot5](https://user-images.githubusercontent.com/45186438/75292843-ec006980-581c-11ea-84e1-a42314f3d113.png)
+
+
+
 
 
 
