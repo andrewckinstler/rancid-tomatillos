@@ -18,4 +18,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - GitHub Projects
 
 ## Screenshots 
-coming soon!
+![screenshot 1](https://user-images.githubusercontent.com/45186438/75292823-e571f200-581c-11ea-9ce5-287062977d8d.png)
+<img width="1440" alt="Screen Shot 2020-02-25 at 3 17 44 PM" src="">
+<img width="1439" alt="Screen Shot 2020-02-25 at 3 17 58 PM" src="https://user-images.githubusercontent.com/45186438/75292843-ec006980-581c-11ea-84e1-a42314f3d113.png">
+<img width="1440" alt="Screen Shot 2020-02-25 at 3 18 39 PM" src="https://user-images.githubusercontent.com/45186438/75292854-f0c51d80-581c-11ea-8c0c-1eb26b4eb734.png">
+<img width="1440" alt="Screen Shot 2020-02-25 at 3 17 34 PM" src="https://user-images.githubusercontent.com/45186438/75292859-f4f13b00-581c-11ea-9ab7-3a5de59ee203.png">
+<img width="1438" alt="Screen Shot 2020-02-25 at 3 17 01 PM" src="https://user-images.githubusercontent.com/45186438/75292860-f589d180-581c-11ea-98c9-e0057fdd6bf0.png">
+<img width="1440" alt="Screen Shot 2020-02-25 at 3 16 53 PM" src="https://user-images.githubusercontent.com/45186438/75292861-f6226800-581c-11ea-8ac3-30fdd1e390b7.png">
+
+
+
+
+
+
+
+
