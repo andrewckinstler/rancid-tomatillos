@@ -3,6 +3,7 @@
 exports[`MovieDeatil should match a snapshot 1`] = `
 <section
   className="movie-detail"
+  key="21"
   style={
     Object {
       "background": "linear-gradient(to top, rgba(42, 42, 42, .75), rgba(42, 42, 42, 0)), url(https://image.tmdb.org/t/p/original//tCUcf3oNWMW8kwAj3WC6CvIN5ah.jpg) no-repeat center top",
@@ -27,10 +28,46 @@ exports[`MovieDeatil should match a snapshot 1`] = `
         Sonic the Hedgehog
       </h2>
       <p
+        className="movie-detail__release-date"
+      >
+        Release Date: 2020-02-12
+      </p>
+      <p
         className="movie-detail__average-rating"
       >
         Average Rating: 7.00
       </p>
+      <div
+        className="movie-detail__user-rating"
+      >
+        <label
+          for="currentRating"
+        >
+          User Rating: 
+          1
+        </label>
+        <p
+          className="movie-detail__rating-inactive"
+        >
+          Thank you for rating!
+        </p>
+      </div>
+      <input
+        className="movie-detail__rating-input"
+        id="user-rating"
+        max="10"
+        min="1"
+        name="currentRating"
+        onChange={[Function]}
+        type="range"
+        value={1}
+      />
+      <button
+        className="movie-detail__button"
+        onClick={[Function]}
+      >
+        Add Rating
+      </button>
       <p
         className="movie-detail__overview"
       >

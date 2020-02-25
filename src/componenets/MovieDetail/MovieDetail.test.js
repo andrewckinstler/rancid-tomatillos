@@ -5,7 +5,7 @@ import { postRating, deleteRating, getRatings, getMovies } from '../../actions/i
 
 
 describe('MovieDeatil', () => {
-  let wrapper, mockMovie;
+  let wrapper, mockMovie, mockUser;
   beforeEach(() => {
     mockMovie = {
       "id": 21,
@@ -16,7 +16,8 @@ describe('MovieDeatil', () => {
       "overview": "Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this live-action adventure comedy, Sonic and his new best friend team up to defend the planet from the evil genius Dr. Robotnik and his plans for world domination.",
       "average_rating": 7
   }
-    wrapper = shallow(<MovieDetail selectedMovie={mockMovie} ratings={[{rating: 1}, {rating: 3}]}/>)
+    mockUser = {id: 123, name: 'me', email: 'me@me.com'}
+    wrapper = shallow(<MovieDetail selectedMovie={mockMovie} ratings={[{rating: 1}, {rating: 3}]} user={ mockUser } />)
   })
   it('should match a snapshot', () => {
     expect(wrapper).toMatchSnapshot()
@@ -75,6 +76,18 @@ describe('MovieDeatil', () => {
       mappedProps.getMovies(movies);
       expect(mockDispatch).toHaveBeenCalledWith(action);
     })
-
+  })
+  describe('Unit Testing', () => {
+    it('should handle changes to the rating in state', () => {
+      const mockEvent = {target: {name: 'currentRating', value: '5'}};
+      const expected = 5;
+      wrapper.instance().handleRatingChange(mockEvent);
+      expect(wrapper.state('currentRating')).toEqual(expected);
+    })
+    it('should call submitRating when Add Rating is clicked', () => {
+      wrapper.instance().submitRating = jest.fn();
+      wrapper.find('.movie-detail__button').simulate('click');
+      expect(wrapper.instance().submitRating).toHaveBeenCalled();
+    })
   })
 })
