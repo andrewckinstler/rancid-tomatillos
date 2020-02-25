@@ -3,7 +3,7 @@ export const userReducer = (state = null, action) => {
     case 'ADD_USER': 
       return action.user;
     case 'LOGOUT_USER': 
-      return action.user;
+      return null;
     default: 
       return state;
   }
