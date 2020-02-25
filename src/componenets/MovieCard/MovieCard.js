@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MovieCard.scss'
+import PropTypes from 'prop-types';
 
 export const MovieCard = ({title, posterPath, id, averageRating, userRating}) => {
-  console.log(userRating);
   if (!userRating) {
     return (
       <Link className='movie-card' id={id} to={`/movies/${id}`}>
@@ -27,3 +27,11 @@ export const MovieCard = ({title, posterPath, id, averageRating, userRating}) =>
     )
   }
 }
+
+MovieCard.propTypes = {
+  title: PropTypes.string,
+  posterPath: PropTypes.any,
+  id: PropTypes.number,
+  averageRating: PropTypes.number,
+  userRating: PropTypes.number
+};

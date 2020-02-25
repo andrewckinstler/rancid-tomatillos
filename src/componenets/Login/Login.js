@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { addUser, errorMsg, getRatings } from '../../actions';
 import { Redirect } from 'react-router-dom';
 import './Login.scss';
+import PropTypes from 'prop-types';
 
 export class Login extends Component {
   constructor(props) {
@@ -67,7 +68,6 @@ export class Login extends Component {
   }
 }
 
-
 const mapStateToProps = state => ({
   error: state.error,
   user: state.user
@@ -80,3 +80,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
+
+Login.propTypes = {
+  props: PropTypes.any
+};

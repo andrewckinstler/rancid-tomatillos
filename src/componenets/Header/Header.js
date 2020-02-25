@@ -2,13 +2,13 @@ import React from 'react';
 import './Header.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logout } from '../../actions'
+import { logout } from '../../actions';
+import PropTypes from 'prop-types';
 
 const Header = (props) => {
   let avgRating = props.ratings.reduce((acc, rating) => {
     return acc + rating.rating;
   }, 0) / props.ratings.length
-  console.log(avgRating);
 	return (
     <article className="header_main-container">
       {!props.user 
@@ -41,3 +41,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
+ 
+Header.propTypes = {
+  props: PropTypes.any
+}
