@@ -13,6 +13,7 @@ export class MovieContainer extends Component {
                 posterPath={movie.poster_path}
                 id={movie.id}
                 averageRating={movie.average_rating}
+                userRating={this.props.ratings.find(rating => movie.id === rating.movie_id)}
             />
     })
 
