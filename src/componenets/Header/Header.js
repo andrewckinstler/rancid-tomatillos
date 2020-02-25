@@ -5,14 +5,18 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions'
 
 const Header = (props) => {
+  let avgRating = props.ratings.reduce((acc, rating) => {
+    return acc + rating.rating;
+  }, 0) / props.ratings.length
+  console.log(avgRating);
 	return (
     <article className="header_main-container">
       {!props.user 
       ? null
       : <article className="header_welcome-text">
-          <h1>Welcome, [user]!</h1>
-          <h3> Avg. Rating: 5.5 </h3>
-          <h3>Number of Ratings:</h3>
+          <h1>Welcome, {props.user.name}!</h1>
+          <h3> Avg. Rating: {avgRating.toFixed(2)} </h3>
+          <h3>Number of Ratings: {props.ratings.length}</h3>
         </article>}
       <Link to={'/'} className="header_main-link">
         Rancid Tomatillos
@@ -28,6 +32,7 @@ const Header = (props) => {
 }
 
 const mapStateToProps = state => ({
+  ratings: state.ratings,
   user: state.user
 });
 
