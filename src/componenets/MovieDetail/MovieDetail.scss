@@ -39,12 +39,21 @@
     font-weight: 700;
   }
   &__overview {
-    height: 15em;
+    height: 12em;
     overflow: scroll;
     text-align: left;
     width: 90%;
   }
+  &__rating-input{
+    margin: 1.5em 0 0.5em;
+  }
   &__button {
     @include button_style;
+    margin: 1em;
+    padding: 1em;
+    &:hover {
+      transform: none;
+      background-color: darken($primary-color, 10);
+    }
   }
 }
