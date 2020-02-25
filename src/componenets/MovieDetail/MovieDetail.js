@@ -14,10 +14,6 @@ export class MovieDetail extends Component {
     }
   }
 
-  findPreviousRating() {
-    return this.props.ratings.find(rating => this.props.selectedMovie.id === rating.movie_id)
-  }
-
   handleRatingChange = e => {
     this.setState({[e.target.name]: parseInt(e.target.value)})
   }
@@ -36,21 +32,18 @@ export class MovieDetail extends Component {
     })
   }
 
-  async submitRating() {
+  submitRating() {
     let movieId = this.props.selectedMovie.id
     let newRating = this.state.currentRating
-    let oldRating = this.props.ratings.find(rating => this.props.selectedMovie.id === rating.movie_id)
+    let oldRating = this.props.ratings.find(rating => this.props.selectedMovie.id === rating.movie_id);
     let userId = this.props.user.id
     if (!oldRating) {
-      console.log('posting new rating');
       postRatingToApi(movieId, newRating, userId)
         .then(res => {
-          console.log('res:', res)
           this.loadRatings()
           this.loadMovies()
         })
     } else {
-      console.log('updating rating');
       deleteRatingFromApi(oldRating.id, userId)
         .then(res => {
           postRatingToApi(movieId, newRating, userId)
@@ -65,7 +58,7 @@ export class MovieDetail extends Component {
   }
 
   componentDidMount() {
-    let previousRating = this.findPreviousRating();
+    let previousRating = this.props.ratings.find(rating => this.props.selectedMovie.id === rating.movie_id);
     if(previousRating) {
       this.setState({currentRating: previousRating.rating});
     }
@@ -79,7 +72,7 @@ export class MovieDetail extends Component {
     }
 
     return (
-      <section className='movie-detail' style={backgroundStyling}>
+      <section className='movie-detail' style={backgroundStyling} key={id}>
         <div className='movie-detail__info' >
           <img 
             className='movie-detail__poster' 
