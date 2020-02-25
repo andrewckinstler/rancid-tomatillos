@@ -9,7 +9,7 @@ import Header from '../Header/Header.js';
 import { fetchMoviesAPI } from '../../apiCalls/apiCalls.js';
 import { loadingMovies, getMovies } from '../../actions';
 import { Loading } from '../Loading/Loading.js';
-
+import PropTypes from 'prop-types';
 
 export class App extends Component {
   constructor() {
@@ -43,7 +43,7 @@ export class App extends Component {
         <Header />
         <div className='content'>
           <Switch>
-            <Route 
+            <Route
               path='/login'
               render={() => <Login />}
             />
@@ -74,3 +74,10 @@ export const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+App.propTypes = {
+  movies: PropTypes.array.isRequired,
+  ratings: PropTypes.number,
+  loadingStatus: PropTypes.number,
+  user: PropTypes.string
+}

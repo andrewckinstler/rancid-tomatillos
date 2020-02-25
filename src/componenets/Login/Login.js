@@ -82,5 +82,7 @@ export const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
 
 Login.propTypes = {
-  props: PropTypes.any
+  props: PropTypes.any,
+  error: PropTypes.string,
+  user: PropTypes.number
 };

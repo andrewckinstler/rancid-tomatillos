@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { MovieCard } from '../../componenets/MovieCard/MovieCard.js'
 import { connect } from 'react-redux';
 import './MovieContainer.scss';
+import PropTypes from 'prop-types';
 
 export class MovieContainer extends Component {
 
@@ -28,8 +29,14 @@ export const mapStateToProps = state => {
   return {
     movies: state.movies,
     ratings: state.ratings,
-    loadingStatus: state.loadingStatus
+    loadingStatus: state.boolean
   }
 }
 
 export default connect(mapStateToProps)(MovieContainer);
+
+MovieContainer.propTypes = {
+  movies: PropTypes.array.isRequired,
+  ratings: PropTypes.array.isRequired,
+  loadingStatus: PropTypes.number
+};
