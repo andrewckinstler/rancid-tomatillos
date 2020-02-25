@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions';
 import PropTypes from 'prop-types';
 
-const Header = (props) => {
+export const Header = (props) => {
   let avgRating = props.ratings.reduce((acc, rating) => {
     return acc + rating.rating;
   }, 0) / props.ratings.length
@@ -31,17 +31,17 @@ const Header = (props) => {
   )
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   ratings: state.ratings,
   user: state.user
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   logout: () => dispatch( logout() )
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
- 
+
 Header.propTypes = {
   props: PropTypes.any
 }

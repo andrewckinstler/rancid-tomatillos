@@ -23,7 +23,7 @@ export class Login extends Component {
     const { addUser } = this.props;
     const { email, password } = this.state;
     const user = { email, password };
-    try { 
+    try {
       const result = await userSignIn(user);
       addUser(result.user)
       this.props.errorMsg('')
@@ -31,7 +31,7 @@ export class Login extends Component {
     }
     catch (e) {
       this.props.errorMsg('Username and/or Password are incorrect')
-    } 
+    }
   }
 
   loadRatings() {
@@ -68,12 +68,12 @@ export class Login extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   error: state.error,
   user: state.user
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   addUser: (user) => dispatch( addUser(user) ),
   errorMsg: error => dispatch( errorMsg(error) ),
   getRatings: (ratings) => dispatch(getRatings(ratings))

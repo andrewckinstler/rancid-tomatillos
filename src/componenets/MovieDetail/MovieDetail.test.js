@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { MovieDetail, mapStateToProps, mapDispatchToProps } from './MovieDetail.js';
-import { postRating } from '../../actions/index.js'
+import { postRating, deleteRating, getRatings, getMovies } from '../../actions/index.js'
 
 
 describe('MovieDeatil', () => {
@@ -16,7 +16,7 @@ describe('MovieDeatil', () => {
       "overview": "Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this live-action adventure comedy, Sonic and his new best friend team up to defend the planet from the evil genius Dr. Robotnik and his plans for world domination.",
       "average_rating": 7
   }
-    wrapper = shallow(<MovieDetail selectedMovie={mockMovie} />)
+    wrapper = shallow(<MovieDetail selectedMovie={mockMovie} ratings={[{rating: 1}, {rating: 3}]}/>)
   })
   it('should match a snapshot', () => {
     expect(wrapper).toMatchSnapshot()
@@ -32,6 +32,7 @@ describe('MovieDeatil', () => {
       const expected = {
         movies: [{title: 'Parasite', rating: 9}, {title: '1917', rating: 8}],
         ratings: [{id: 25, rating: 9}, {id: 27, rating: 4}],
+        user: {id: 123, name: 'me'}
       }
       const mappedProps = mapStateToProps(mockState)
       expect(mappedProps).toEqual(expected)
@@ -47,5 +48,33 @@ describe('MovieDeatil', () => {
       mappedProps.postRating(rating);
       expect(mockDispatch).toHaveBeenCalledWith(action);
     })
+    it('should call dispatch with the deleteRating action when deleteRating is invoked', () => {
+      const mockDispatch = jest.fn();
+      const rating = {id: 123, rating: 4};
+      const action = deleteRating(rating);
+      const mappedProps = mapDispatchToProps(mockDispatch)
+
+      mappedProps.deleteRating(rating);
+      expect(mockDispatch).toHaveBeenCalledWith(action);
+    })
+    it('should call dispatch with the getRatings action when getRatings is invoked', () => {
+      const mockDispatch = jest.fn();
+      const rating = {id: 123, rating: 4};
+      const action = getRatings(rating);
+      const mappedProps = mapDispatchToProps(mockDispatch)
+
+      mappedProps.getRatings(rating);
+      expect(mockDispatch).toHaveBeenCalledWith(action);
+    })
+    it('should call dispatch with the getMovies action when getMovies is invoked', () => {
+      const mockDispatch = jest.fn();
+      const movies = [{title: 'Parasite'}, {title: '1917'}];
+      const action = getMovies(movies);
+      const mappedProps = mapDispatchToProps(mockDispatch)
+
+      mappedProps.getMovies(movies);
+      expect(mockDispatch).toHaveBeenCalledWith(action);
+    })
+
   })
 })
