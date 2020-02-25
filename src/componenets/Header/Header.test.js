@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Header, mapStateToProps, mapDispatchToProps } from './Header.js';
+import { logout } from '../../actions/index.js'
+
 
 describe('Header', () => {
   let wrapper;
@@ -28,5 +30,16 @@ describe('Header', () => {
       const mappedProps = mapStateToProps(mockState)
       expect(mappedProps).toEqual(expected)
     })
+  })
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with a logout action when logout() is called', () => {
+      const mockDispatch = jest.fn();
+      const action = logout();
+      const mappedProps = mapDispatchToProps(mockDispatch)
+
+      mappedProps.logout();
+      expect(mockDispatch).toHaveBeenCalledWith(action);
+    })
+
   })
 })
