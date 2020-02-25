@@ -9,7 +9,7 @@ export class MovieDetail extends Component {
   constructor() {
     super();
     this.state = {
-      currentRating: 1,
+      currentRating: 0,
       visualClass: false
     }
   }
@@ -53,8 +53,18 @@ export class MovieDetail extends Component {
             })
         })
     }
-    this.loadRatings();
     this.setState({visualClass: true});
+  }
+
+  clearRating() {
+    let oldRating = this.props.ratings.find(rating => this.props.selectedMovie.id === rating.movie_id);
+    let userId = this.props.user.id
+    deleteRatingFromApi(oldRating.id, userId)
+      .then(res => {
+        this.loadRatings()
+        this.loadMovies()
+      })
+    this.setState({currentRating: 0})
   }
 
   componentDidMount() {
@@ -89,7 +99,7 @@ export class MovieDetail extends Component {
           {this.props.user ?
           <>
             <div className='movie-detail__user-rating'>
-              <label for='currentRating'>User Rating: { this.state.currentRating }</label>
+              <label for='currentRating'>User Rating: { this.state.currentRating || '-' }</label>
               <p className={this.state.visualClass ? 'movie-detail__rating-active' : 'movie-detail__rating-inactive'}>
                 Thank you for rating!
               </p>
@@ -104,9 +114,18 @@ export class MovieDetail extends Component {
               id='user-rating' 
               name='currentRating' 
               value={this.state.currentRating} />
-            <button 
-              className='movie-detail__button' 
-              onClick={() => this.submitRating() }>Add Rating</button>
+            <div className='movie-detail__rating-buttons'>
+              <button
+                className='movie-detail__button movie-detail__delete-rating'
+                onClick={() => this.clearRating()}>
+                  Delete Rating
+              </button>
+              <button 
+                className='movie-detail__button movie-detail__add-rating' 
+                onClick={() => this.submitRating()}>
+                  Add Rating
+              </button>
+            </div>
           </>
           : null}
             <p className='movie-detail__overview'>{overview}</p>
