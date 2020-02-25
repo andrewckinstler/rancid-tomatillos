@@ -35,6 +35,9 @@
     margin: 0;
     text-align: center;
   }
+  &__release-date {
+    margin: 0.5em 0;
+  }
   &__average-rating {
     font-weight: 700;
   }
@@ -42,18 +45,42 @@
     height: 12em;
     overflow: scroll;
     text-align: left;
-    width: 90%;
+    width: 100%;
   }
   &__rating-input{
-    margin: 1.5em 0 0.5em;
+    margin: 1em 0 0.5em;
   }
   &__button {
     @include button_style;
-    margin: 1em;
+    margin: 0.5em;
     padding: 1em;
     &:hover {
       transform: none;
       background-color: darken($primary-color, 10);
     }
+  }
+  &__user-rating {
+    @include display-flex(row nowrap, center, space-between);
+  }
+  &__rating-inactive {
+    display: none;
+  }
+  &__rating-active {
+    display: block;
+    color: lighten($primary-color, 10);
+    animation: flash-rating 2s normal;
+    margin: 0;
+  }
+}
+
+@keyframes flash-rating {
+  0% {
+    color: lighten($primary-color, 10);
+  }
+  50% {
+    color: $accent-color;
+  }
+  100% {
+    color: lighten($primary-color, 10);
   }
 }

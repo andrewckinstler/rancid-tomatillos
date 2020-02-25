@@ -9,7 +9,8 @@ export class MovieDetail extends Component {
   constructor() {
     super();
     this.state = {
-      currentRating: 1
+      currentRating: 1,
+      visualClass: false
     }
   }
 
@@ -60,6 +61,7 @@ export class MovieDetail extends Component {
         })
     }
     this.loadRatings();
+    this.setState({visualClass: true});
   }
 
   componentDidMount() {
@@ -79,15 +81,39 @@ export class MovieDetail extends Component {
     return (
       <section className='movie-detail' style={backgroundStyling}>
         <div className='movie-detail__info' >
-          <img className='movie-detail__poster' alt={`movie poster for ${title}`} src={poster_path} />
+          <img 
+            className='movie-detail__poster' 
+            alt={`movie poster for ${title}`} 
+            src={poster_path} />
           <div className='movie-detail__details'>
             <h2 className='movie-detail__title'>{title}</h2>
-            <p className='movie-detail__average-rating'>{`Average Rating: ${average_rating.toFixed(2)}`}</p>
+            <p className='movie-detail__release-date'>
+              {`Release Date: ${release_date}`}
+            </p>
+            <p className='movie-detail__average-rating'>
+              {`Average Rating: ${average_rating.toFixed(2)}`}
+            </p>
           {this.props.user ?
           <>
-            <label for='currentRating'>User Rating: { this.state.currentRating }</label>
-            <input className='movie-detail__rating-input' onChange={this.handleRatingChange} value={this.state.currentRating} type='range' min='1' max='10' id='user-rating' name='currentRating' value={this.state.currentRating} />
-            <button className='movie-detail__button' onClick={() => this.submitRating() }>Add Rating</button>
+            <div className='movie-detail__user-rating'>
+              <label for='currentRating'>User Rating: { this.state.currentRating }</label>
+              <p className={this.state.visualClass ? 'movie-detail__rating-active' : 'movie-detail__rating-inactive'}>
+                Thank you for rating!
+              </p>
+            </div>
+            <input 
+              className='movie-detail__rating-input' 
+              onChange={this.handleRatingChange} 
+              value={this.state.currentRating} 
+              type='range' 
+              min='1' 
+              max='10' 
+              id='user-rating' 
+              name='currentRating' 
+              value={this.state.currentRating} />
+            <button 
+              className='movie-detail__button' 
+              onClick={() => this.submitRating() }>Add Rating</button>
           </>
           : null}
             <p className='movie-detail__overview'>{overview}</p>
