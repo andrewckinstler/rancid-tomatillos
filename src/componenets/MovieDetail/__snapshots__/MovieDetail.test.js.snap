@@ -44,7 +44,7 @@ exports[`MovieDeatil should match a snapshot 1`] = `
           for="currentRating"
         >
           User Rating: 
-          1
+          -
         </label>
         <p
           className="movie-detail__rating-inactive"
@@ -60,14 +60,24 @@ exports[`MovieDeatil should match a snapshot 1`] = `
         name="currentRating"
         onChange={[Function]}
         type="range"
-        value={1}
+        value={0}
       />
-      <button
-        className="movie-detail__button"
-        onClick={[Function]}
+      <div
+        className="movie-detail__rating-buttons"
       >
-        Add Rating
-      </button>
+        <button
+          className="movie-detail__button movie-detail__delete-rating"
+          onClick={[Function]}
+        >
+          Delete Rating
+        </button>
+        <button
+          className="movie-detail__button movie-detail__add-rating"
+          onClick={[Function]}
+        >
+          Add Rating
+        </button>
+      </div>
       <p
         className="movie-detail__overview"
       >
