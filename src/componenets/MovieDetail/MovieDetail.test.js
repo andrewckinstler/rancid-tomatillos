@@ -86,8 +86,13 @@ describe('MovieDeatil', () => {
     })
     it('should call submitRating when Add Rating is clicked', () => {
       wrapper.instance().submitRating = jest.fn();
-      wrapper.find('.movie-detail__button').simulate('click');
+      wrapper.find('.movie-detail__add-rating').simulate('click');
       expect(wrapper.instance().submitRating).toHaveBeenCalled();
+    })
+    it('should call submitRating when Add Rating is clicked', () => {
+      wrapper.instance().clearRating = jest.fn();
+      wrapper.find('.movie-detail__delete-rating').simulate('click');
+      expect(wrapper.instance().clearRating).toHaveBeenCalled();
     })
   })
 })
