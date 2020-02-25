@@ -41,7 +41,9 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
- 
+
 Header.propTypes = {
-  props: PropTypes.any
+  props: PropTypes.any,
+  ratings: PropTypes.array.isRequired,
+  user: PropTypes.number
 }

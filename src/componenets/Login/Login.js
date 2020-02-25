@@ -23,7 +23,7 @@ export class Login extends Component {
     const { addUser } = this.props;
     const { email, password } = this.state;
     const user = { email, password };
-    try { 
+    try {
       const result = await userSignIn(user);
       addUser(result.user)
       this.props.errorMsg('')
@@ -31,7 +31,7 @@ export class Login extends Component {
     }
     catch (e) {
       this.props.errorMsg('Username and/or Password are incorrect')
-    } 
+    }
   }
 
   loadRatings() {
@@ -82,5 +82,7 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
 
 Login.propTypes = {
-  props: PropTypes.any
+  props: PropTypes.any,
+  error: PropTypes.string,
+  user: PropTypes.number
 };

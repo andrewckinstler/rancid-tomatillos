@@ -3,6 +3,7 @@ import './MovieDetail.scss';
 import { connect } from 'react-redux';
 import { postRating, deleteRating, getRatings, getMovies } from '../../actions';
 import { postRatingToApi, deleteRatingFromApi, fetchRatingsAPI, fetchMoviesAPI } from '../../apiCalls/apiCalls';
+import PropTypes from 'prop-types';
 
 export class MovieDetail extends Component {
   constructor() {
@@ -112,3 +113,9 @@ export const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);
+
+MovieDetail.propTypes = {
+  movies: PropTypes.array.isRequired,
+  ratings: PropTypes.number,
+  user: PropTypes.string
+};
