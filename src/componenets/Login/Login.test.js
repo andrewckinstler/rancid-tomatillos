@@ -59,4 +59,22 @@ describe('Login', () => {
       expect(mockDispatch).toHaveBeenCalledWith(action);
     })
   })
+
+  describe('Unit Testing', () => {
+    it('should update the state when user types into field', () => {
+      const startState = {email: '', password: ''};
+      wrapper = shallow(<Login />);
+      wrapper.setState(startState);
+      const mockEvent = {target: {name: 'email', value: 'charlie@turing.io'}};
+      const expected = {email: 'charlie@turing.io'};
+      wrapper.instance().handleChange(mockEvent);
+      expect(wrapper.state('email')).toEqual(expected.email);
+    })
+    it('should call handleClick when the button is clicked', () => {
+      wrapper = shallow(<Login />);
+      wrapper.instance().handleClick = jest.fn();
+      wrapper.find('.login-form__button').simulate('click');
+      expect(wrapper.instance().handleClick).toHaveBeenCalled();
+    })
+  })
 })
