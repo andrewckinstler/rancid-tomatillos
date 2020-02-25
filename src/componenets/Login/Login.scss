@@ -24,6 +24,7 @@
     width: 100%;
     &:hover {
       transform: none;
+      background-color: darken($primary-color, 10);
     }
   }
   &__error {

@@ -31,7 +31,6 @@ export class MovieDetail extends Component {
     fetchMoviesAPI()
     .then(data => {
       this.props.getMovies(data.movies)
-      // this.props.loadingMovies(true)
     })
   }
 
@@ -86,7 +85,7 @@ export class MovieDetail extends Component {
           {this.props.user ?
           <>
             <label for='currentRating'>User Rating: { this.state.currentRating }</label>
-            <input onChange={this.handleRatingChange} value={this.state.currentRating} type='range' min='1' max='10' id='user-rating' name='currentRating' value={this.state.currentRating} />
+            <input className='movie-detail__rating-input' onChange={this.handleRatingChange} value={this.state.currentRating} type='range' min='1' max='10' id='user-rating' name='currentRating' value={this.state.currentRating} />
             <button className='movie-detail__button' onClick={() => this.submitRating() }>Add Rating</button>
           </>
           : null}
