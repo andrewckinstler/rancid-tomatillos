@@ -5,8 +5,9 @@ export const ratingsReducer = (state = [], action) => {
     case 'POST_RATING':
       return [...action.ratings, action.rating];
     case 'DELETE_RATING':
-      return action.ratings.filter(movie => movie.id !== state.id)
-
+      return action.ratings.filter(movie => movie.id !== state.id);
+    case 'LOGOUT_USER':
+      return [];
     default:
       return state;
   }
