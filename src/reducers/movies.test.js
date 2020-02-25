@@ -11,9 +11,9 @@ describe('movieReducer', () => {
     const movies = [{title: 'Parasite'}, {title: 'Sonic'}];
     const mockAction = {
       type: 'GET_MOVIES',
-      movies: movies
+      movies
     }
-    const mockState = [{title: '1917'}, {title: 'Uncut Gems'}] ;
+    const mockState = [{title: '1917'}, {title: 'Uncut Gems'}];
     const expected = [{title: 'Parasite'}, {title: 'Sonic'}];
     const result = movieReducer(mockState, mockAction);
     expect(result).toEqual(expected);
