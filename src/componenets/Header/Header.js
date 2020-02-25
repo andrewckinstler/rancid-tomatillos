@@ -8,10 +8,9 @@ const Header = (props) => {
   let avgRating = props.ratings.reduce((acc, rating) => {
     return acc + rating.rating;
   }, 0) / props.ratings.length
-  console.log(avgRating);
 	return (
     <article className="header_main-container">
-      {!props.user 
+      {!props.user
       ? null
       : <article className="header_welcome-text">
           <h1>Welcome, {props.user.name}!</h1>
@@ -22,7 +21,7 @@ const Header = (props) => {
         Rancid Tomatillos
       </Link>
       {
-        !props.user 
+        !props.user
         ? <Link to={'/login'} className="header_log-button">Login</Link>
         : <Link to={'/'} className="header_log-button"
         onClick={() => props.logout() }>Logout</Link>
