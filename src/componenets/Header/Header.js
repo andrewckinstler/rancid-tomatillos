@@ -44,6 +44,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
 Header.propTypes = {
   props: PropTypes.any,
-  ratings: PropTypes.array.isRequired,
-  user: PropTypes.number
+  ratings: PropTypes.array,
+  user: PropTypes.object
 }

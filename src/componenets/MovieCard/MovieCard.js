@@ -30,7 +30,7 @@ export const MovieCard = ({title, posterPath, id, averageRating, userRating}) =>
 
 MovieCard.propTypes = {
   title: PropTypes.string,
-  posterPath: PropTypes.any,
+  posterPath: PropTypes.string,
   id: PropTypes.number,
   averageRating: PropTypes.number,
   userRating: PropTypes.number
