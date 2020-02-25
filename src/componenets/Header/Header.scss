@@ -9,13 +9,18 @@
 	display: grid;
 	grid-template-areas: 'welcome-text title logoff';
 	grid-template-columns: 1fr 1fr 1fr;
-	height: 145px;
+	height: 120px;
 }
 
 .header_welcome-text {
 	font-family: $main-font;
+	font-size: 1em;
 	grid-area: welcome-text;
-	margin-left: 5%;
+	margin: 0.3em 0.75em;
+}
+
+.header_welcome-text > * {
+	margin: 0.5em 0;
 }
 
 .header_main-link {
