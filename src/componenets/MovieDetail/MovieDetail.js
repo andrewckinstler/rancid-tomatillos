@@ -30,10 +30,8 @@ export class MovieDetail extends Component {
   async submitRating() {
     let movieId = this.props.selectedMovie.id
     let newRating = this.state.currentRating
-    // let oldRating = this.findPreviousRating()
     let oldRating = this.props.ratings.find(rating => this.props.selectedMovie.id === rating.movie_id)
     let userId = this.props.user.id
-    // console.log('movieId:', movieId, 'newRating:', newRating, 'oldRating:', oldRating, 'userId:', userId);
     if (!oldRating) {
       console.log('posting new rating');
       postRatingToApi(movieId, newRating, userId)
