@@ -50,4 +50,6 @@ describe('actions', () => {
       const result = actions.postRating(rating)
       expect(result).toEqual(expectedAction)
     })
+
+    // need tests for DELETE_RATING, LOGOUT_USER, and ERROR_MSG
 });

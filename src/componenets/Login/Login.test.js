@@ -12,7 +12,7 @@ describe('Login', () => {
   it('should match a snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
-
+  // need mapStateToProps tests here
   describe('mapDispatchToProps', () => {
     it('should call dispatch with the addUser action when addUser is called', () => {
       const mockDispatch = jest.fn();
@@ -23,5 +23,6 @@ describe('Login', () => {
       mappedProps.addUser(user);
       expect(mockDispatch).toHaveBeenCalledWith(action);
     })
+    // need errorMsg and getRatings MDTP tests
   })
 })

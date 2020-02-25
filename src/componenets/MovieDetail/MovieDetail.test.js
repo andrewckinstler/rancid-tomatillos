@@ -32,6 +32,7 @@ describe('MovieDeatil', () => {
       const expected = {
         movies: [{title: 'Parasite', rating: 9}, {title: '1917', rating: 8}],
         ratings: [{id: 25, rating: 9}, {id: 27, rating: 4}],
+        user: {id: 123, name: 'me'}
       }
       const mappedProps = mapStateToProps(mockState)
       expect(mappedProps).toEqual(expected)
@@ -47,5 +48,6 @@ describe('MovieDeatil', () => {
       mappedProps.postRating(rating);
       expect(mockDispatch).toHaveBeenCalledWith(action);
     })
+    // need delete and getRatings MDTP tests
   })
 })

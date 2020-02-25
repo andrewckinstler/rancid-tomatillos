@@ -10,4 +10,6 @@ describe('Header', () => {
   it('should match a snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
+
+// need mapState and mapDispatch tests here
 })

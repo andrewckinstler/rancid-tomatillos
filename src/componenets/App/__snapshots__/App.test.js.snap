@@ -4,11 +4,15 @@ exports[`App should match a snapshot 1`] = `
 <main
   className="main"
 >
-  <Header />
+  <Connect(Header) />
   <div
     className="content"
   >
     <Switch>
+      <Route
+        path="/login"
+        render={[Function]}
+      />
       <Route
         path="/movies/:id"
         render={[Function]}
