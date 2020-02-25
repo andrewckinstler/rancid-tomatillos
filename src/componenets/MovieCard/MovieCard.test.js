@@ -5,7 +5,7 @@ import { MovieCard } from './MovieCard.js';
 describe('MovieCard', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<MovieCard />)
+    wrapper = shallow(<MovieCard averageRating={6.456}/>)
   })
   it('should match a snapshot', () => {
     expect(wrapper).toMatchSnapshot()

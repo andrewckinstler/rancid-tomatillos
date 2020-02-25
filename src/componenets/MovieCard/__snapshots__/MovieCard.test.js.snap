@@ -18,7 +18,7 @@ exports[`MovieCard should match a snapshot 1`] = `
     <h2
       className="movie-rating"
     >
-      Rating: undefined/10
+      Avg. Rating: 6.46/10
     </h2>
   </footer>
 </Link>

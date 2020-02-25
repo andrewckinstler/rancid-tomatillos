@@ -36,7 +36,7 @@ describe('fetchMoviesAPI', () => {
         ok: false,
       })
     });
-    
+
     expect(fetchMoviesAPI()).rejects.toEqual(Error('Failed to retrieve movies.'))
   });
 
@@ -69,7 +69,7 @@ describe('fetchRatingsAPI', () => {
   })
 
   it('should call fetch with the correct URL', () => {
-    fetchRatingsAPI();
+    fetchRatingsAPI(24);
     expect(window.fetch).toHaveBeenCalledWith('https://rancid-tomatillos.herokuapp.com/api/v1/users/24/ratings')
   })
 
@@ -84,7 +84,7 @@ describe('fetchRatingsAPI', () => {
         ok: false,
       })
     });
-    
+
     expect(fetchRatingsAPI()).rejects.toEqual(Error('Failed to get ratings.'))
   });
 
@@ -110,7 +110,7 @@ describe('fetchMoviesAPI', () => {
       method: 'POST',
       body: JSON.stringify(mockUser),
       headers: {
-        'Content-Type': 'application/json'  
+        'Content-Type': 'application/json'
       }
     }
 
@@ -138,7 +138,7 @@ describe('fetchMoviesAPI', () => {
         ok: false,
       })
     });
-    
+
     expect(userSignIn(mockUser)).rejects.toEqual(Error('Failed to sign in.'))
   });
 

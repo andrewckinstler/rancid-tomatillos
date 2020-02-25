@@ -14,7 +14,7 @@ describe('MovieContainer', () => {
       "overview": "Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this live-action adventure comedy, Sonic and his new best friend team up to defend the planet from the evil genius Dr. Robotnik and his plans for world domination.",
       "average_rating": 7
   }]
-    wrapper = shallow(<MovieContainer movies={mockProps} />)
+    wrapper = shallow(<MovieContainer movies={mockProps} ratings={[{rating: 1}, {rating: 3}]} />)
   })
   it('should match a snapshot', () => {
     expect(wrapper).toMatchSnapshot()
