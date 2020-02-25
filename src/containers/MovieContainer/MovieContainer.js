@@ -9,12 +9,13 @@ export class MovieContainer extends Component {
   render() {
     let movieCards = this.props.movies.map(movie => {
       return <MovieCard
-                title={movie.title}
-                posterPath={movie.poster_path}
-                id={movie.id}
-                averageRating={movie.average_rating}
-                userRating={this.props.ratings.find(rating => movie.id === rating.movie_id)}
-            />
+        key={movie.id}
+        title={movie.title}
+        posterPath={movie.poster_path}
+        id={movie.id}
+        averageRating={movie.average_rating}
+        userRating={this.props.ratings.find(rating => movie.id === rating.movie_id)}
+      />
     })
 
     return (
@@ -29,14 +30,14 @@ export const mapStateToProps = state => {
   return {
     movies: state.movies,
     ratings: state.ratings,
-    loadingStatus: state.boolean
+    loadingStatus: state.loadingStatus
   }
 }
 
 export default connect(mapStateToProps)(MovieContainer);
 
 MovieContainer.propTypes = {
-  movies: PropTypes.array.isRequired,
-  ratings: PropTypes.array.isRequired,
-  loadingStatus: PropTypes.number
+  movies: PropTypes.array,
+  ratings: PropTypes.array,
+  loadingStatus: PropTypes.bool
 };

@@ -84,5 +84,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(Login)
 Login.propTypes = {
   props: PropTypes.any,
   error: PropTypes.string,
-  user: PropTypes.number
+  user: PropTypes.object
 };
