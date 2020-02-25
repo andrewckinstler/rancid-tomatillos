@@ -6,8 +6,8 @@ import MovieContainer from '../../containers/MovieContainer/MovieContainer.js'
 import Login from '../Login/Login'
 import MovieDetail from '../MovieDetail/MovieDetail.js';
 import Header from '../Header/Header.js';
-import { fetchMoviesAPI, fetchRatingsAPI } from '../../apiCalls/apiCalls.js';
-import { loadingMovies, getMovies, getRatings } from '../../actions';
+import { fetchMoviesAPI } from '../../apiCalls/apiCalls.js';
+import { loadingMovies, getMovies } from '../../actions';
 import { Loading } from '../Loading/Loading.js';
 
 

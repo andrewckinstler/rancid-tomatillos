@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './MovieDetail.scss';
 import { connect } from 'react-redux';
-import { postRating, deleteRating, getRatings } from '../../actions';
-import { postRatingToApi, deleteRatingFromApi, fetchRatingsAPI } from '../../apiCalls/apiCalls';
+import { postRating, deleteRating, getRatings, getMovies } from '../../actions';
+import { postRatingToApi, deleteRatingFromApi, fetchRatingsAPI, fetchMoviesAPI } from '../../apiCalls/apiCalls';
 
 export class MovieDetail extends Component {
   constructor() {
@@ -27,6 +27,14 @@ export class MovieDetail extends Component {
     })
   }
 
+  loadMovies() {
+    fetchMoviesAPI()
+    .then(data => {
+      this.props.getMovies(data.movies)
+      // this.props.loadingMovies(true)
+    })
+  }
+
   async submitRating() {
     let movieId = this.props.selectedMovie.id
     let newRating = this.state.currentRating
@@ -38,16 +46,20 @@ export class MovieDetail extends Component {
         .then(res => {
           console.log('res:', res)
           this.loadRatings()
+          this.loadMovies()
         })
     } else {
       console.log('updating rating');
-       deleteRatingFromApi(oldRating.id, userId)
+      deleteRatingFromApi(oldRating.id, userId)
         .then(res => {
           postRatingToApi(movieId, newRating, userId)
-            .then(res => this.loadRatings())
+            .then(res => {
+              this.loadRatings()
+              this.loadMovies()
+            })
         })
     }
-     this.loadRatings();
+    this.loadRatings();
   }
 
   componentDidMount() {
@@ -95,7 +107,8 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   postRating: (rating) => dispatch(postRating(rating)),
   deleteRating: (rating) => dispatch(deleteRating(rating)),
-  getRatings: (ratings) => dispatch(getRatings(ratings))
+  getRatings: (ratings) => dispatch(getRatings(ratings)),
+  getMovies: (movies) => dispatch(getMovies(movies))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);
