@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { MovieCard } from '../../componenets/MovieCard/MovieCard.js'
 import { connect } from 'react-redux';
-import './MovieContainer.scss'
-
+import './MovieContainer.scss';
 
 export class MovieContainer extends Component {
 
