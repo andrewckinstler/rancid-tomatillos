@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './MovieCard.scss'
 
 export const MovieCard = ({title, posterPath, id, averageRating, userRating}) => {
-  console.log(userRating);
   if (!userRating) {
     return (
       <Link className='movie-card' id={id} to={`/movies/${id}`}>
