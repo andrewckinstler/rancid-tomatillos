@@ -50,15 +50,5 @@ describe('App', () => {
       mappedProps.getMovies(movies);
       expect(mockDispatch).toHaveBeenCalledWith(action);
     })
-
-    it.skip('should call dispatch with a getRatings action when getRatings is called', () => {
-      const mockDispatch = jest.fn();
-      const ratings = [{id: 25, rating: 9}, {id: 27, rating: 4}];
-      const action = getRatings(ratings);
-      const mappedProps = mapDispatchToProps(mockDispatch)
-
-      mappedProps.getRatings(ratings);
-      expect(mockDispatch).toHaveBeenCalledWith(action);
-    })
   })
 })
