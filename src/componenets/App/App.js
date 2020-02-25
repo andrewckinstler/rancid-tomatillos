@@ -18,7 +18,7 @@ export class App extends Component {
   }
 
   componentDidMount() {
-    Promise.all([this.loadMovies(), this.loadRatings()])
+    Promise.all([this.loadMovies()])
   }
 
   loadMovies() {
@@ -26,13 +26,6 @@ export class App extends Component {
     .then(data => {
       this.props.getMovies(data.movies)
       this.props.loadingMovies(true)
-    })
-  }
-
-  loadRatings() {
-    fetchRatingsAPI()
-    .then(data => {
-      this.props.getRatings(data.ratings)
     })
   }
 
@@ -71,13 +64,13 @@ export class App extends Component {
 export const mapStateToProps = (state) => ({
   movies: state.movies,
   ratings: state.ratings,
-  loadingStatus: state.loadingStatus
+  loadingStatus: state.loadingStatus,
+  user: state.user
 })
 
 export const mapDispatchToProps = dispatch => ({
   loadingMovies: (loadingStatus) => dispatch(loadingMovies(loadingStatus)),
-  getMovies: (movies) => dispatch(getMovies(movies)),
-  getRatings: (ratings) => dispatch(getRatings(ratings))
+  getMovies: (movies) => dispatch(getMovies(movies))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

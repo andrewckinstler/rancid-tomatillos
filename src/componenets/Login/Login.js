@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { userSignIn } from '../../apiCalls/apiCalls'
+import { userSignIn, fetchRatingsAPI } from '../../apiCalls/apiCalls'
 import { connect } from 'react-redux';
-import { addUser, errorMsg } from '../../actions';
+import { addUser, errorMsg, getRatings } from '../../actions';
 import { Redirect } from 'react-router-dom';
 import './Login.scss';
 
@@ -26,10 +26,18 @@ export class Login extends Component {
       const result = await userSignIn(user);
       addUser(result.user)
       this.props.errorMsg('')
+      this.loadRatings()
     }
     catch (e) {
       this.props.errorMsg('Username and/or Password are incorrect')
     } 
+  }
+
+  loadRatings() {
+    fetchRatingsAPI(this.props.user.id)
+    .then(data => {
+      this.props.getRatings(data.ratings)
+    })
   }
 
   render() {
@@ -67,7 +75,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addUser: (user) => dispatch( addUser(user) ),
-  errorMsg: error => dispatch( errorMsg(error) )
+  errorMsg: error => dispatch( errorMsg(error) ),
+  getRatings: (ratings) => dispatch(getRatings(ratings))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

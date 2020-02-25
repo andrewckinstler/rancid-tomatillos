@@ -7,9 +7,8 @@ export const fetchMoviesAPI = async () => {
     return res.json()})
 }
 
-// Currently has user ID hard coded, but needs to be updated to be dynamic
-export const fetchRatingsAPI = async () => {
-  return await fetch('https://rancid-tomatillos.herokuapp.com/api/v1/users/24/ratings')
+export const fetchRatingsAPI = async (id) => {
+  return await fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${id}/ratings`)
   .then(res => {
     if(!res.ok) {
       throw Error('Failed to get ratings.')
@@ -33,4 +32,37 @@ export const userSignIn = (user) => {
               throw Error('Failed to sign in.')
             }
             return res.json()})
+}
+
+export const postRatingToApi = (movieId, rating, userId) => {
+  const url = `https://rancid-tomatillos.herokuapp.com/api/v1/users/${userId}/ratings`
+  const options = {
+    method: 'POST',
+    body: JSON.stringify({
+      movie_id: movieId,
+      rating
+    }),
+    headers: {
+      'Content-Type': 'application/json'  
+    }
+  } 
+  return fetch(url, options)
+          .then(res => {
+            if(!res.ok) {
+              throw Error('Failed post rating.')
+            }
+            // return res.json()
+          })
+}
+
+export const deleteRatingFromApi = (ratingId, userId) => {
+  const url = `https://rancid-tomatillos.herokuapp.com/api/v1/users/${userId}/ratings/${ratingId}`
+  const options = {
+    method: 'DELETE'
+  }
+  return fetch(url, options)
+          .then(res => {
+            if(!res.ok) {
+              throw Error('Failed delete rating.')
+            }})
 }
