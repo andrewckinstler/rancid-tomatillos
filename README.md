@@ -20,6 +20,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Deployed to Heroku:
 [Heroku](https://rancid-tomatillos-1909.herokuapp.com/)
 
+login info:
+email: charlie@turing.io password: qwerty
+
 ## Screenshots 
 ![base state](https://user-images.githubusercontent.com/45186438/75292861-f6226800-581c-11ea-8ac3-30fdd1e390b7.png)
 ![login](https://user-images.githubusercontent.com/45186438/75292860-f589d180-581c-11ea-98c9-e0057fdd6bf0.png)
